@@ -1,40 +1,58 @@
-using System;
-using Microsoft.Azure.Cosmos;
-using moviesapi.Interfaces;
+/*
+
+namespace moviesapi.Process;
 using moviesapi.Services;
-
-namespace moviesapi.Process
+using System;
+using System.ComponentModel;
+using moviesapi.Interfaces;
+using System.Collections.Generic;
+using _cosmos=Microsoft.Azure.Cosmos;
+[Obsolete("Use IProcess<T> implementation instead")]
+public class BaseProcess<T>: IProcess<T> where T : IModel
 {
-    public class BaseProcess<T>: IProcess<T>
+    private readonly CosmosDbService<T> cosmosService;
+    public _cosmos.Container container;
+    public BaseProcess(CosmosDbService<T> service)
     {
-        public CosmosDbService cosmosService;
+        cosmosService = service;
+        container = cosmosService.GetContainerInstance<_cosmos.Container,T>();
+    }
 
-        public BaseProcess(CosmosDbService service)
-        {
-            cosmosService = service;
-        }
+    public async Task<T> GetItemAsync(string id, string partitionKey)
+    {
+        throw new NotImplementedException();
+    }
+    public async Task<T> AddItemAsync(T item)
+    {
+        throw new NotImplementedException();
+    }
+    public async Task<T> UpdateItemAsync(string id, T item)
+    {
+        throw new NotImplementedException();
+    }
 
-        public async Task<T> GetItemAsync(string id, string partitionKey)
-        {
-            throw new NotImplementedException();
-        }
-        public async Task<T> AddItemAsync(T item)
-        {
-            throw new NotImplementedException();
-        }
-        public async Task<T> UpdateItemAsync(string id, T item)
-        {
-            throw new NotImplementedException();
-        }
+    public async Task DeleteItemAsync(string id, string partitionKey)
+    {
+        throw new NotImplementedException();
+    }
 
-        public async Task DeleteItemAsync(string id, string partitionKey)
+    public async Task<List<T>> GetAllItemsAsync(string userId)
+    {
+        var result = new List<T>();
+        try
         {
-            throw new NotImplementedException();
+            var query = cosmosService.container.GetItemQueryIterator<T>("SELECT * FROM c");                
+            while(query.HasMoreResults)
+            {
+                var response = await query.ReadNextAsync();
+                result.AddRange(response);
+            }                
         }
-
-        public virtual async Task<List<T>> GetAllItemsAsync(string userId)
+        catch(Exception ex) 
         {
-            throw new NotImplementedException();
-        }      
-    }    
-}
+            throw ex;
+        }
+        return result;
+    }      
+}    
+*/

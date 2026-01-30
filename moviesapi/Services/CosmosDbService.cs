@@ -1,15 +1,30 @@
-using Microsoft.Azure.Cosmos;
-
-namespace moviesapi.Services
+namespace moviesapi.Services;
+using System.Collections.Generic;
+using _cosmos=Microsoft.Azure.Cosmos; 
+using moviesapi.Interfaces;   
+public class CosmosDbService
 {
-    public class CosmosDbService
+    public _cosmos.CosmosClient cosmosClient;
+
+    public _cosmos.Database database;
+    string databaseName;
+    //public _cosmos.Container container;
+    public CosmosDbService(_cosmos.CosmosClient _cosmosClient, IConfiguration _configuration)
     {
-        public CosmosClient cosmosClient;
-        public Container container;
-        public CosmosDbService(CosmosClient _cosmosClient, IConfiguration _configuration, string containerName)
+        cosmosClient = _cosmosClient;
+        database = cosmosClient.GetDatabase(_configuration["CosmosDb:DatabaseName"]);
+        databaseName = _configuration["CosmosDb:DatabaseName"];
+        //container = GetContainerInstance<_cosmos.Container,T>();
+    }
+
+    public  _cosmos.Container GetContainerInstance<T>() where T : IModel
+    {
+        switch(typeof(T).Name)
         {
-            cosmosClient = _cosmosClient;
-            container = cosmosClient.GetContainer(_configuration["CosmosDb:databaseName"],containerName);
+            case "Movie":
+                return cosmosClient.GetContainer(databaseName,"Movies");
+            default:
+                throw new ArgumentException("Invalid type");
         }
-    }   
+    }
 }   
