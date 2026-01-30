@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest //revisar el OS del webapp
+    runs-on: ubuntu-latest #revisar el OS del webapp
 
     steps:
       - name: Checkout
