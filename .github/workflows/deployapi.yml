@@ -37,13 +37,13 @@ jobs:
 
       - name: Publish
         run: |
-          dotnet publish --configuration Release -o ./movieswebapi
+          dotnet publish --configuration Release -o ./publish
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: movieswebapi
-          path: ./movieswebapi
+          path: ./publish
 
 
   deploy:
@@ -53,10 +53,9 @@ jobs:
     steps:
 
       - name: Download artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: movieswebapi
-          path: .
 
       - name: Authenticate to azure
         uses: azure/login@v2
@@ -69,7 +68,7 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: ${{env.AZURE_WEBAPP_NAME}}
-          package: ./movieswebapi
+          package: ./publish
 
       - name: logout
         run: |
