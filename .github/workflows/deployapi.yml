@@ -1,4 +1,4 @@
-name: deploy-to-cloud
+name: deployapi
 
 on:
   push:
@@ -21,6 +21,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Authenticate to azure
         uses: azure/login@v2
         with:
           client-id: ${{secrets.AZURE_CLIENT_ID}}
@@ -60,5 +62,3 @@ jobs:
       - name: logout
         run: |
           az logout
-
-
