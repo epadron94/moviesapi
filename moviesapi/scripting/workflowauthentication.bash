@@ -15,3 +15,5 @@ az ad app federated-credential create --id $spObjectId --parameters @federatedcr
 gh secret set AZURE_CLIENT_ID --body $clientId --repo epadron94/moviesapi
 gh secret set AZURE_TENANT_ID --body $tenantId --repo epadron94/moviesapi
 gh secret set AZURE_SUBSCRIPTION_ID --body $subscriptionId --repo epadron94/moviesapi
+
+

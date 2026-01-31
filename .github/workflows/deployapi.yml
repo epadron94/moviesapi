@@ -37,13 +37,27 @@ jobs:
 
       - name: Publish
         run: |
-          dotnet publish --configuration Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH}}/movieswebapi'
+          dotnet publish --configuration Release -o ./movieswebapi
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: movieswebapi-${{github.run-id}}
+          path: ./movieswebapi
+
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
 
     steps:
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: movieswebapi-${{github.run-id}}
+          path: .
+
       - name: Authenticate to azure
         uses: azure/login@v2
         with:
@@ -55,7 +69,7 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: ${{env.AZURE_WEBAPP_NAME}}
-          package: ${{env.AZURE_WEBAPP_PACKAGE_PATH}}/movieswebapi
+          package: ./movieswebapi
 
       - name: logout
         run: |
