@@ -8,3 +8,7 @@ keyvaulturi=$(az keyvault show --name moviesappvault --query properties.vaultUri
 certuri=$(az keyvault certificate list --id $keyvaulturi --query "[].{id:id}" -o tsv)
 appsettingvalue="movieswebapicert=@Microsoft.KeyVault(CertificateUri=$certuri)"
 az webapp config appsettings set --name movieswebapi --resource-group $resourcegroupname --settings $appsettingvalue
+
+
+ webapiprofile=$(az webapp deployment list-publishing-profiles --name movieswebapi --resource-group $resourcegroupname  --xml)
+ 
