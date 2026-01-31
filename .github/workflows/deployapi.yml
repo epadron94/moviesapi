@@ -42,7 +42,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: movieswebapi-${{github.run-id}}
+          name: movieswebapi
           path: ./movieswebapi
 
 
@@ -55,7 +55,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: movieswebapi-${{github.run-id}}
+          name: movieswebapi
           path: .
 
       - name: Authenticate to azure
