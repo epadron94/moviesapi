@@ -37,7 +37,7 @@ jobs:
 
       - name: Publish
         run: |
-          dotnet publish --configuration Release --property:PublishDir='{{ env.AZURE_WEBAPP_PACKAGE_PATH}}/movieswebapi'
+          dotnet publish --configuration Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH}}/movieswebapi'
 
   deploy:
     runs-on: ubuntu-latest
