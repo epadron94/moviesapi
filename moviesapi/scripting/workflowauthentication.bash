@@ -1,3 +1,4 @@
+# from https://learn.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=openid%2Caspnetcore
 subscriptionId=$(az account show --query id -o tsv)
 appName="githubauth" 
 movieswebapiscope=$(az webapp show --name movieswebapi --resource-group MoviesApp --query id -o tsv)

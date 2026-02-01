@@ -6,9 +6,9 @@ using System.Reflection;
 using moviesapi.Models;
 using moviesapi.Process;
 using moviesapi.Services;
+using System.Security.Cryptography.X509Certificates;
 
-
-System.Threading.Thread.Sleep(10000);
+System.Threading.Thread.Sleep(20000);
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -19,11 +19,42 @@ builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 //Keyvault app identity access
 var keyVaultUriConfig = builder.Configuration.GetSection("KeyVault");
-Console.WriteLine("KeyVault URI: " + keyVaultUriConfig["Uri"]);
-builder.Configuration.AddAzureKeyVault(
-    new Uri(keyVaultUriConfig["Uri"]),
-    new DefaultAzureCredential()
-);
+//Console.WriteLine("KeyVault URI: " + keyVaultUriConfig["Uri"]);
+try
+{
+    var certBase64 = Environment.GetEnvironmentVariable("movieswebapicert");
+    //var credential = new DefaultAzureCredential();
+    if(!string.IsNullOrEmpty(certBase64))
+    {
+        Console.WriteLine("certificate found as env variable, proceed to authenticate to service principal using certificate");
+        var bytes = Convert.FromBase64String(certBase64);
+        var cert = new X509Certificate2(bytes);
+        
+        var spConfig= builder.Configuration.GetSection("ServicePrincipal");
+        var clientId = spConfig["ClientId"];
+        var tenantId = spConfig["TenantId"];
+
+        var credential = new ClientCertificateCredential(tenantId, clientId, cert);
+        
+        builder.Configuration.AddAzureKeyVault(
+            new Uri(keyVaultUriConfig["Uri"]),
+            credential
+        );
+    }
+    else
+    {
+        Console.WriteLine("no certificate found, proceed to authenticate with current az cli user logged");
+        builder.Configuration.AddAzureKeyVault(
+            new Uri(keyVaultUriConfig["Uri"]),
+            new DefaultAzureCredential()
+        );        
+    }
+}
+catch(Exception ex)
+{
+    Console.WriteLine("Something went wrong loading the certificate: inner exception:" + ex.InnerException + " message: " + ex.Message);
+}
+
 /*Console.WriteLine("CosmosDbAccount" + builder.Configuration["CosmosDbAccount"]);
 Console.WriteLine("primaryMasterKey" + builder.Configuration["primaryMasterKey"]);*/
 //get secret value using builder.Configuration["secretname"]
@@ -36,12 +67,11 @@ builder.Services.AddSingleton<CosmosClient>(t =>
    {
        ApplicationPreferredRegions = cosmosDbConfig.GetSection("PreferredRegions").Get<List<string>>()
    };
-   Console.WriteLine("CosmosDbAccount: " + builder.Configuration["CosmosDbAccount"]);
-   Console.WriteLine("primaryMasterKey: " + builder.Configuration["primaryMasterKey"]);
+   
    return new CosmosClient(
-    accountEndpoint: builder.Configuration["CosmosDbAccount"],
-    authKeyOrResourceToken: builder.Configuration["primaryMasterKey"],
-    clientOptions: clientOptions
+        accountEndpoint: builder.Configuration["CosmosDbAccount"],
+        authKeyOrResourceToken: builder.Configuration["primaryMasterKey"],
+        clientOptions: clientOptions
    );
 
 });
