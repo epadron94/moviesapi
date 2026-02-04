@@ -1,0 +1,1 @@
+export movieswebapicert="$(cat moviesapicert.txt)"

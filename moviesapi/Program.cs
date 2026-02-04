@@ -8,7 +8,7 @@ using moviesapi.Process;
 using moviesapi.Services;
 using System.Security.Cryptography.X509Certificates;
 
-System.Threading.Thread.Sleep(20000);
+//System.Threading.Thread.Sleep(20000);
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -17,7 +17,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 
 builder.Services.AddControllers();
-//Keyvault app identity access
+
 var keyVaultUriConfig = builder.Configuration.GetSection("KeyVault");
 //Console.WriteLine("KeyVault URI: " + keyVaultUriConfig["Uri"]);
 try
@@ -54,11 +54,6 @@ catch(Exception ex)
 {
     Console.WriteLine("Something went wrong loading the certificate: inner exception:" + ex.InnerException + " message: " + ex.Message);
 }
-
-/*Console.WriteLine("CosmosDbAccount" + builder.Configuration["CosmosDbAccount"]);
-Console.WriteLine("primaryMasterKey" + builder.Configuration["primaryMasterKey"]);*/
-//get secret value using builder.Configuration["secretname"]
-
 //CosmosDb connection using singleton
 var cosmosDbConfig = builder.Configuration.GetSection("CosmosDb");
 builder.Services.AddSingleton<CosmosClient>(t =>

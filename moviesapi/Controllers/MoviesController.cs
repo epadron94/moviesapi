@@ -20,8 +20,8 @@ public class MoviesController : ControllerBase
     [HttpGet("api/HelloWorld")]
     public IActionResult HelloWorld()
     {
-        var result = process.GetAllItemsAsync("anyuser");
-        return  Ok(result);
+        //var result = process.GetAllItemsAsync("anyuser");
+        return  Ok("moshi moshi from movies api");
     }
 
 }
