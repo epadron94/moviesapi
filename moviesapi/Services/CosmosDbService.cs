@@ -2,6 +2,7 @@ namespace moviesapi.Services;
 using System.Collections.Generic;
 using _cosmos=Microsoft.Azure.Cosmos; 
 using moviesapi.Interfaces;   
+using moviesapi.Models;
 public class CosmosDbService
 {
     public _cosmos.CosmosClient cosmosClient;
@@ -22,7 +23,7 @@ public class CosmosDbService
         switch(typeof(T).Name)
         {
             case "Movie":
-                return cosmosClient.GetContainer(databaseName,"Movies");
+                return cosmosClient.GetContainer(databaseName, typeof(Movie).Name);
             default:
                 throw new ArgumentException("Invalid type");
         }

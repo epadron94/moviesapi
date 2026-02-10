@@ -7,6 +7,9 @@ using moviesapi.Models;
 using moviesapi.Process;
 using moviesapi.Services;
 using System.Security.Cryptography.X509Certificates;
+using moviesapi.Interfaces;
+
+using moviesapi.Utilities;
 
 //System.Threading.Thread.Sleep(20000);
 var builder = WebApplication.CreateBuilder(args);
@@ -80,8 +83,23 @@ builder.Services.AddSingleton(t =>
                              );
 });
 
-builder.Services.AddScoped<MovieProcess>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>(t =>
+{
+    var cosmosDbService =  t.GetRequiredService<CosmosDbService>();
+    var utilities = t.GetRequiredService<Utilities>();
+    return new UnitOfWork(cosmosDbService, utilities);
+});
 
+builder.Services.AddScoped<MovieService>(l =>
+{
+    var unitOfWork =  l.GetRequiredService<IUnitOfWork>();
+    return new MovieService(unitOfWork);
+});
+/*builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IOrderService, OrderService>();*/
+
+//builder.Services.AddScoped<MovieService>();
+builder.Services.AddSingleton<Utilities>();
 
 var app = builder.Build();
 
@@ -91,7 +109,3 @@ app.MapControllers();
 
 app.UseHttpsRedirection();
 app.Run();
-
-
-//builder.Configuration["CosmosDbAccount"]
-//CosmosDbKey

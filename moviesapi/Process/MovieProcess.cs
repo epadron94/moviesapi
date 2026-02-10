@@ -2,59 +2,58 @@ namespace moviesapi.Process;
 using System;
 using moviesapi.Services;
 using moviesapi.Models;
+using moviesapi.Models.Dto;
 using moviesapi.Interfaces;
 using System.ComponentModel;
 using _cosmos=Microsoft.Azure.Cosmos;
+using System.Net;
+using System.Net.Http.Headers;
+using moviesapi.Utilities;
 
-public class MovieProcess : IProcess<Movie>//BaseProcess<Movie>
+public class MovieProcess : IMovieProcess//BaseProcess<Movie>
 {
     private readonly CosmosDbService cosmosService;
 
     private readonly _cosmos.Container container;
 
-    public MovieProcess(CosmosDbService service)
+    private readonly Utilities utilities;
+
+    public MovieProcess(CosmosDbService service, Utilities utilities)
     {
         cosmosService = service;
         container = cosmosService.GetContainerInstance<Movie>();
+        this.utilities = utilities;
     }
 
-    public async Task<Movie> GetItemAsync(string id, string partitionKey)
-    {
-        throw new NotImplementedException();
-    }
 
-    public  async Task<Movie> AddItemAsync(Movie item)
+    public async Task<(List<MovieDto>, string ContinuationToken, double cost)> GetAllItemsAsync(int pageSize, string continuationToken)
     {
-        throw new NotImplementedException();
-    }
-    public async Task<Movie> UpdateItemAsync(string id, Movie item)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task DeleteItemAsync(string id, string partitionKey)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<List<Movie>> GetAllItemsAsync(string userId)
-    {
-        var result = new List<Movie>();
+        var result = new List<MovieDto>();
         try
         {
-            var query = container.GetItemQueryIterator<Movie>("SELECT * FROM c");                
-            while(query.HasMoreResults)
+            var token = utilities.Decode(continuationToken);
+            var query = "SELECT c.id, c.title, c.releaseYear, c.releaseDate, c.plot, c.rating, c.runtimeSeconds FROM c ORDER BY c.releaseDate DESC";
+            var requestOptions = new _cosmos.QueryRequestOptions
             {
-                var response = await query.ReadNextAsync();
-                result.AddRange(response);
-            }                
+                MaxItemCount = pageSize,
+                //PartitionKey = new _cosmos.PartitionKey("id")
+            };
+            var iterator = container.GetItemQueryIterator<MovieDto>(query,token,requestOptions);
+
+            var response = await iterator.ReadNextAsync();    
+            result.AddRange(response.Resource);            
+            
+            var continuationTokenEncoded = utilities.Encode(response.ContinuationToken);
+            return(result, continuationTokenEncoded, response.RequestCharge);
+
         }
-        catch(Exception ex) 
+        catch(_cosmos.CosmosException ex)when(ex.StatusCode ==  System.Net.HttpStatusCode.TooManyRequests)
         {
+            Console.WriteLine("Request was throttled. Retry after: " + ex.RetryAfter);
             throw ex;
         }
-        return result;
     }
-    
+
+  
 
 }

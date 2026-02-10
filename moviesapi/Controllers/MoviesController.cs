@@ -5,23 +5,23 @@ using moviesapi.Process;
 using moviesapi.Services;
 using moviesapi.Models;
 using moviesapi.Interfaces;
-using moviesapi.Process;
+using moviesapi.Services;
 [ApiController]
 public class MoviesController : ControllerBase
 {
-    private readonly MovieProcess process;
+    private readonly MovieService service;
 
-    public MoviesController(MovieProcess movieProcess)
+    public MoviesController(MovieService movieService)
     {
-        process = movieProcess;
+        service = movieService;
     }
 
     [Authorize]
-    [HttpGet("api/HelloWorld")]
-    public IActionResult HelloWorld()
+    [HttpGet("api/movies/getmovies")]
+    public async Task<IActionResult> GetMovies(int pageSize, string continuationToken = null)
     {
-        //var result = process.GetAllItemsAsync("anyuser");
-        return  Ok("moshi moshi from movies api");
+        var (result, nextToken, cost) = await service.GetAllItemsAsync(pageSize, continuationToken);
+        return  Ok(new {result, nextToken, cost});
     }
 
 }
