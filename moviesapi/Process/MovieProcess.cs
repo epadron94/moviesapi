@@ -26,7 +26,7 @@ public class MovieProcess : IMovieProcess//BaseProcess<Movie>
     }
 
 
-    public async Task<(List<MovieDto>, string ContinuationToken, double cost)> GetAllItemsAsync(int pageSize, string continuationToken)
+    public async Task<(List<MovieDto>, string ContinuationToken, double cost)> GetAllItemsAsync(int ? pageSize, string continuationToken)
     {
         var result = new List<MovieDto>();
         try
@@ -35,15 +35,29 @@ public class MovieProcess : IMovieProcess//BaseProcess<Movie>
             var query = "SELECT c.id, c.title, c.releaseYear, c.releaseDate, c.plot, c.rating, c.runtimeSeconds FROM c ORDER BY c.releaseDate DESC";
             var requestOptions = new _cosmos.QueryRequestOptions
             {
-                MaxItemCount = pageSize,
+                MaxItemCount = pageSize
                 //PartitionKey = new _cosmos.PartitionKey("id")
             };
-            var iterator = container.GetItemQueryIterator<MovieDto>(query,token,requestOptions);
+            var iterator = container.GetItemQueryIterator<MovieDto>(query,token, requestOptions);
 
             var response = await iterator.ReadNextAsync();    
             result.AddRange(response.Resource);            
             
-            var continuationTokenEncoded = utilities.Encode(response.ContinuationToken);
+            string continuationTokenEncoded = null;
+
+            /*if(iterator.HasMoreResults)
+                if(CheckForMoreRows(response.ContinuationToken))
+                    continuationTokenEncoded = utilities.Encode(response.ContinuationToken);*/
+
+            
+            if(iterator.HasMoreResults)
+            {
+                var checkForMoreRows = await  iterator.ReadNextAsync();
+
+                if(iterator.HasMoreResults)
+                    continuationTokenEncoded = utilities.Encode(response.ContinuationToken);
+            }
+
             return(result, continuationTokenEncoded, response.RequestCharge);
 
         }
@@ -54,6 +68,27 @@ public class MovieProcess : IMovieProcess//BaseProcess<Movie>
         }
     }
 
-  
+    public async Task<MovieDto> GetMovieById(string id)
+    {
 
+        var result = new MovieDto();
+        var response = await container.ReadItemAsync<MovieDto>(id,new _cosmos.PartitionKey(id));
+        result = response.Resource;
+
+        return result;
+    }
+
+    private bool CheckForMoreRows(string continuationToken)
+    {
+        var query = "SELECT 1 FROM C ORDER BY c.releaseDate DESC";
+        var requestOptions = new _cosmos.QueryRequestOptions
+        {
+            MaxItemCount = 1
+        };
+        var iterator =  container.GetItemQueryIterator<bool>(query, continuationToken,requestOptions);
+        var response = iterator.ReadNextAsync();
+        return iterator.HasMoreResults;
+    }
 }
+
+

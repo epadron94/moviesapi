@@ -5,23 +5,36 @@ using moviesapi.Process;
 using moviesapi.Services;
 using moviesapi.Models;
 using moviesapi.Interfaces;
-using moviesapi.Services;
+using System.ComponentModel.DataAnnotations;
+using moviesapi.Utilities;
+
 [ApiController]
 public class MoviesController : ControllerBase
 {
     private readonly MovieService service;
+    private readonly Utilities utilities; 
 
-    public MoviesController(MovieService movieService)
+    public MoviesController(MovieService movieService, Utilities _utilities)
     {
         service = movieService;
+        utilities = _utilities;
     }
 
     [Authorize]
     [HttpGet("api/movies/getmovies")]
-    public async Task<IActionResult> GetMovies(int pageSize, string continuationToken = null)
+    public async Task<IActionResult> GetMovies([FromQuery, Required, Range(2,25)]int? pageSize, string continuationToken = null)
     {
+        if(continuationToken is not null  && !utilities.IsBase64(continuationToken)) throw new ArgumentNullException("continuationToken is not valid");
         var (result, nextToken, cost) = await service.GetAllItemsAsync(pageSize, continuationToken);
         return  Ok(new {result, nextToken, cost});
+    }
+
+    [Authorize]
+    [HttpGet("api/movies/getmovie")]
+    public async Task<IActionResult> GetMovie(string id)
+    {
+        var result = await service.GetMovieById(id);
+        return Ok(result);   
     }
 
 }
