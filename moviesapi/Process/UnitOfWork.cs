@@ -33,7 +33,7 @@ public class UnitOfWork : IUnitOfWork
 
     private IReviewProcess _reviewProcess;
     private IMovieProcess _movieProcess;
-
+    private IUserProcess _userProcess;
     private readonly CosmosDbService _cosmosDbService;
     private readonly Utilities _utilities;
 
@@ -45,4 +45,5 @@ public class UnitOfWork : IUnitOfWork
 
     public IReviewProcess ReviewProcess => _reviewProcess ??= new ReviewProcess(_cosmosDbService);
     public IMovieProcess MovieProcess => _movieProcess ??= new MovieProcess(_cosmosDbService, _utilities);
+    public IUserProcess UserProcess => _userProcess ??= new UserProcess(_cosmosDbService);
 }

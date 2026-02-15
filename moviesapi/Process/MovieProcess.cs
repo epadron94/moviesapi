@@ -9,30 +9,29 @@ using _cosmos=Microsoft.Azure.Cosmos;
 using System.Net;
 using System.Net.Http.Headers;
 using moviesapi.Utilities;
+using Microsoft.Azure.Cosmos;
 
 public class MovieProcess : IMovieProcess//BaseProcess<Movie>
 {
-    private readonly CosmosDbService cosmosService;
+    private readonly CosmosDbService service;
 
     private readonly _cosmos.Container container;
-
     private readonly Utilities utilities;
 
-    public MovieProcess(CosmosDbService service, Utilities utilities)
+    public MovieProcess(CosmosDbService _service, Utilities _utilities)
     {
-        cosmosService = service;
-        container = cosmosService.GetContainerInstance<Movie>();
-        this.utilities = utilities;
+        service = _service;
+        container = service.GetContainerInstance<Movie>();
+        utilities = _utilities;
     }
 
-
-    public async Task<(List<MovieDto>, string ContinuationToken, double cost)> GetAllItemsAsync(int ? pageSize, string continuationToken)
+    public async Task<(List<MovieDto>, string ContinuationToken, double cost)> GetAllItemsAsync(int? pageSize, string continuationToken)
     {
         var result = new List<MovieDto>();
         try
         {
             var token = utilities.Decode(continuationToken);
-            var query = "SELECT c.id, c.title, c.releaseYear, c.releaseDate, c.plot, c.rating, c.runtimeSeconds FROM c ORDER BY c.releaseDate DESC";
+            var query = "SELECT c.id, c.title, c.releaseYear, c.releaseDate, c.plot, c.rating, c.runtimeMin FROM c ORDER BY c.releaseDate DESC";
             var requestOptions = new _cosmos.QueryRequestOptions
             {
                 MaxItemCount = pageSize
@@ -45,11 +44,6 @@ public class MovieProcess : IMovieProcess//BaseProcess<Movie>
             
             string continuationTokenEncoded = null;
 
-            /*if(iterator.HasMoreResults)
-                if(CheckForMoreRows(response.ContinuationToken))
-                    continuationTokenEncoded = utilities.Encode(response.ContinuationToken);*/
-
-            
             if(iterator.HasMoreResults)
             {
                 var checkForMoreRows = await  iterator.ReadNextAsync();
@@ -70,7 +64,6 @@ public class MovieProcess : IMovieProcess//BaseProcess<Movie>
 
     public async Task<MovieDto> GetMovieById(string id)
     {
-
         var result = new MovieDto();
         var response = await container.ReadItemAsync<MovieDto>(id,new _cosmos.PartitionKey(id));
         result = response.Resource;
@@ -78,16 +71,24 @@ public class MovieProcess : IMovieProcess//BaseProcess<Movie>
         return result;
     }
 
-    private bool CheckForMoreRows(string continuationToken)
+    public async Task<bool> ItemExistsAsync(Guid Id)
     {
-        var query = "SELECT 1 FROM C ORDER BY c.releaseDate DESC";
-        var requestOptions = new _cosmos.QueryRequestOptions
+        string strId = Convert.ToString(Id);
+        try
         {
-            MaxItemCount = 1
-        };
-        var iterator =  container.GetItemQueryIterator<bool>(query, continuationToken,requestOptions);
-        var response = iterator.ReadNextAsync();
-        return iterator.HasMoreResults;
+            var response = await container.ReadItemStreamAsync(strId, new _cosmos.PartitionKey(strId));
+            return response.IsSuccessStatusCode;
+        }
+        catch(_cosmos.CosmosException ex) when(ex.StatusCode == HttpStatusCode.NotFound)
+        {
+            return false;
+        }
+    }
+
+    public async Task<ItemResponse<ReviewDto>> PostMovieReview(ReviewDto review)
+    {
+        var response = await container.CreateItemAsync(review, new _cosmos.PartitionKey(Convert.ToString(review.MovieId)));
+        return response;
     }
 }
 

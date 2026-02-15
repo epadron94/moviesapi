@@ -81,6 +81,19 @@ builder.Services.AddSingleton(t =>
                               typeof(Movie).Name
                              );
 });
+builder.Services.AddSingleton(t=>
+{
+    var client= t.GetRequiredService<CosmosClient>();
+    return client.GetContainer(builder.Configuration["CosmosDb:DatabaseName"],
+                              typeof(Review).Name
+                             );
+});
+builder.Services.AddSingleton(t =>
+{
+    var client = t.GetRequiredService<CosmosClient>();
+    return client.GetContainer(builder.Configuration["CosmosDb:DatabaseName"],
+                                typeof(moviesapi.Models.User).Name);
+});
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>(t =>
 {
@@ -94,6 +107,15 @@ builder.Services.AddScoped<MovieService>(l =>
     var unitOfWork =  l.GetRequiredService<IUnitOfWork>();
     return new MovieService(unitOfWork);
 });
+builder.Services.AddScoped<ReviewService>(l=>
+{
+    var unitOfWork = l.GetRequiredService<IUnitOfWork>();
+    return new ReviewService(unitOfWork);
+});
+
+
+
+
 /*builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IOrderService, OrderService>();*/
 

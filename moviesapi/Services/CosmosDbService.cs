@@ -18,14 +18,8 @@ public class CosmosDbService
         //container = GetContainerInstance<_cosmos.Container,T>();
     }
 
-    public  _cosmos.Container GetContainerInstance<T>() where T : IModel
+    public _cosmos.Container GetContainerInstance<T>() where T : IModel
     {
-        switch(typeof(T).Name)
-        {
-            case "Movie":
-                return cosmosClient.GetContainer(databaseName, typeof(Movie).Name);
-            default:
-                throw new ArgumentException("Invalid type");
-        }
+        return cosmosClient.GetContainer(databaseName, typeof(T).Name);
     }
 }   

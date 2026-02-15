@@ -1,13 +1,23 @@
 namespace moviesapi.Models.Dto;
 using System;
+using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 public class MovieDto
 {
-    public string id {get;set;} //partiton key
-    public string title {get;set;}
-    public int releaseYear {get;set;}
-    public DateTime releaseDate {get;set;}
-    public string plot {get;set;}
-    public int rating {get;set;}
-    public int runtimeSeconds {get;set;}   
+    [JsonProperty("id")]
+    public string Id {get;set;} 
+    [JsonProperty("title")]
+    public string Title {get;set;}
+    [JsonProperty("releaseYear")]
+    public int ReleaseYear {get;set;}
+    [JsonProperty("releaseDate")]
+    public DateTime ReleaseDate {get;set;}
+    [JsonProperty("plot")]
+    public string Plot {get;set;}
+    [JsonProperty("rating")]
+    [Range(0,10)]
+    public int Rating {get;set;}
+    [JsonProperty("runtimeMin")]
+    public int RuntimeMin {get;set;}   
 }

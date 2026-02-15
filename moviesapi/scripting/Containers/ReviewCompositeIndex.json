@@ -1,0 +1,8 @@
+{
+    "compositeIndexes":[
+        [
+            {"path": "/reviewDate", "order": "descending"},
+            {"path": "/rating", "order": "descending"}
+        ]
+    ]
+}

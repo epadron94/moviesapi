@@ -20,7 +20,7 @@ public class ReviewProcess : IReviewProcess
     {
         throw new NotImplementedException();
     }
-    public Task<MovieReviewsDto> GetMovieReviewsAsync(string movieId)
+    public Task<MovieReviewDto> GetMovieReviewsAsync(string movieId)
     {
         throw new NotImplementedException();
     }
@@ -29,9 +29,10 @@ public class ReviewProcess : IReviewProcess
         throw new NotImplementedException();
     }
 
-    public Task<bool> PostReviewAsync(ReviewDto review)
+    public async Task<_cosmos.ItemResponse<ReviewDto>> PostReviewAsync(ReviewDto review)
     {
-        throw new NotImplementedException();
+        var response = await container.CreateItemAsync(review, new _cosmos.PartitionKey(Convert.ToString(review.Id)));
+        return response;
     }
     public Task<ReviewDto> PatchReviewAsync(string id, ReviewDto review)
     {

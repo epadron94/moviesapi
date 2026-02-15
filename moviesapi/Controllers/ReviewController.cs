@@ -2,17 +2,28 @@ namespace moviesapi.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using moviesapi.Services;
-using _cosmos=Microsoft.Azure.Cosmos;
-using moviesapi.Process;
+using System.Security.Claims;
+using moviesapi.Models.Dto;
 
 [ApiController]
 public class ReviewController : ControllerBase
 {
-    private readonly ReviewProcess process;
+    private readonly ReviewService service;
 
-    public ReviewController(ReviewProcess reviewProcess)
+    public ReviewController(ReviewService _service)
     {
-        process = reviewProcess;
+        service = _service;
+    }
+
+    [Authorize]
+    [HttpPost("api/reviews/postReview")]
+    public async Task<IActionResult> PostReview([FromBody]ReviewDto review)
+    {
+
+        string userObjectId = User.FindFirstValue("http://schemas.microsoft.com/identity/claims/objectidentifier");
+        review.UserId= new Guid(userObjectId);
+        var response = await service.postReview(review);
+        return Ok();
     }
 
     [Authorize]
