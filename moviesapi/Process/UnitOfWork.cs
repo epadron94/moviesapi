@@ -45,5 +45,5 @@ public class UnitOfWork : IUnitOfWork
 
     public IReviewProcess ReviewProcess => _reviewProcess ??= new ReviewProcess(_cosmosDbService);
     public IMovieProcess MovieProcess => _movieProcess ??= new MovieProcess(_cosmosDbService, _utilities);
-    public IUserProcess UserProcess => _userProcess ??= new UserProcess(_cosmosDbService);
+    public IUserProcess UserProcess => _userProcess ??= new UserProcess(_cosmosDbService, _utilities);
 }

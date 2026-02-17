@@ -14,11 +14,6 @@ public class ReviewService
         unitOfWork = _unitOfWork;
     }
 
-    /*public async Task<ReviewDto> getReviewById(string id)
-    {
-        var item = unitOfWork.ReviewProcess.
-    }*/
-
     public async Task<HttpStatusCode> postReview(ReviewDto review)
     {
 

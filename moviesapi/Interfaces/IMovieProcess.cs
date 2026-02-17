@@ -8,4 +8,5 @@ public interface IMovieProcess
     Task<MovieDto> GetMovieById(string Id);
     Task<bool> ItemExistsAsync(Guid id);
     Task<ItemResponse<ReviewDto>> PostMovieReview(ReviewDto review);
+    Task<(List<ReviewDto>, string ContinuationToken)> GetMovieReviewsAsync(int pageSize, string continuationToken, Guid movieId);
 }

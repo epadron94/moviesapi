@@ -28,4 +28,9 @@ public class MovieService
         return result;   
     }
 
+    public async Task<(List<ReviewDto>, string ContinuationToken)> GetMovieReviews(int pageSize, string continuationToken, Guid movieId)
+    {
+        var (_response, _continuationToken) = await _unitOfWork.MovieProcess.GetMovieReviewsAsync(pageSize, continuationToken,movieId);
+        return (_response, _continuationToken);
+    }
 }

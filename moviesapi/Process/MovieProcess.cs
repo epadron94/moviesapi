@@ -31,11 +31,11 @@ public class MovieProcess : IMovieProcess//BaseProcess<Movie>
         try
         {
             var token = utilities.Decode(continuationToken);
-            var query = "SELECT c.id, c.title, c.releaseYear, c.releaseDate, c.plot, c.rating, c.runtimeMin FROM c ORDER BY c.releaseDate DESC";
+            var query = new QueryDefinition("SELECT c.id, c.title, c.releaseYear, c.releaseDate, c.plot, c.rating, c.runtimeMin FROM c WHERE c.entityType=@entityType ORDER BY c.releaseDate DESC")
+                                            .WithParameter("@entityType","movie");
             var requestOptions = new _cosmos.QueryRequestOptions
             {
                 MaxItemCount = pageSize
-                //PartitionKey = new _cosmos.PartitionKey("id")
             };
             var iterator = container.GetItemQueryIterator<MovieDto>(query,token, requestOptions);
 
@@ -70,7 +70,6 @@ public class MovieProcess : IMovieProcess//BaseProcess<Movie>
 
         return result;
     }
-
     public async Task<bool> ItemExistsAsync(Guid Id)
     {
         string strId = Convert.ToString(Id);
@@ -90,6 +89,29 @@ public class MovieProcess : IMovieProcess//BaseProcess<Movie>
         var response = await container.CreateItemAsync(review, new _cosmos.PartitionKey(Convert.ToString(review.MovieId)));
         return response;
     }
+    public async Task<(List<ReviewDto>, string ContinuationToken)> GetMovieReviewsAsync(int pageSize, string continuationToken, Guid movieId)
+    {
+        var result = new List<ReviewDto>();
+        var token = utilities.Decode(continuationToken);
+        var query = new QueryDefinition("SELECT c.id, c.userId, c.reviewId, c.rating, c.review, c.reviewDate, c.movieId from c WHERE c.entityType=@entityType AND c.movieId=@movieId")
+                    .WithParameter("@entityType","review")
+                    .WithParameter("@movieId", Convert.ToString(movieId));
+
+        var opts = new QueryRequestOptions
+        {
+            MaxItemCount = pageSize,
+            PartitionKey = new PartitionKey(Convert.ToString(movieId))
+        };
+        var iterator = container.GetItemQueryIterator<ReviewDto>(query,token,opts);
+        var response = await iterator.ReadNextAsync();
+        result.AddRange(response.Resource);
+
+        string continuationTokenEncoded = utilities.Encode(response.ContinuationToken);
+        return (result, continuationTokenEncoded);
+
+    }
+
+
 }
 
 

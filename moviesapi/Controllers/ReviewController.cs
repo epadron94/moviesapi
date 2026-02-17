@@ -26,11 +26,5 @@ public class ReviewController : ControllerBase
         return Ok();
     }
 
-    [Authorize]
-    [HttpGet("api/reviews/reviewsBymovie")]
-    public async Task<IActionResult> GetReviewsByMovieId([FromQuery]string movieId)
-    {
-          return Ok();   
-    }
 
 }

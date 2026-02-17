@@ -10,7 +10,7 @@ using System.Security.Cryptography.X509Certificates;
 using moviesapi.Interfaces;
 
 using moviesapi.Utilities;
-
+Console.WriteLine(DateTime.Now);
 //System.Threading.Thread.Sleep(20000);
 var builder = WebApplication.CreateBuilder(args);
 
@@ -111,6 +111,11 @@ builder.Services.AddScoped<ReviewService>(l=>
 {
     var unitOfWork = l.GetRequiredService<IUnitOfWork>();
     return new ReviewService(unitOfWork);
+});
+builder.Services.AddScoped<UserService>(l =>
+{
+    var unitOfWork = l.GetRequiredService<IUnitOfWork>();
+    return new UserService(unitOfWork);
 });
 
 

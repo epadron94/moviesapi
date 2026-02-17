@@ -37,4 +37,15 @@ public class MoviesController : ControllerBase
         return Ok(result);   
     }
 
+    [Authorize]
+    [HttpGet("api/movies/reviews")]
+    public async Task<ActionResult> GetMovieReviews([FromQuery, Required, Range(2,10)]int pageSize, [FromQuery, Required]Guid movieId,[FromQuery] string continuationToken = null)
+    {
+
+        if(continuationToken is not null  && !utilities.IsBase64(continuationToken)) throw new ArgumentNullException("continuationToken is not valid");
+        var (result, nextToken) = await service.GetMovieReviews(pageSize,continuationToken, movieId);
+        return Ok(new {result, nextToken});
+
+    }
+
 }
