@@ -2,7 +2,8 @@ namespace moviesapi.Models.Dto;
 using System;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-
+using moviesapi.Models;
+using moviesapi.Interfaces;
 public class ReviewDto
 {
     [JsonProperty("id")]
@@ -37,6 +38,6 @@ public class ReviewDto
     {
         Id = Guid.NewGuid();
         ReviewId = Id;
-        ReviewDate = DateTime.Now;
+        ReviewDate = DateTime.UtcNow;
     }
 }

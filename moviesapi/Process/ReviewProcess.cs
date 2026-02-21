@@ -20,23 +20,25 @@ public class ReviewProcess : IReviewProcess
     {
         throw new NotImplementedException();
     }
-    public Task<MovieReviewDto> GetMovieReviewsAsync(string movieId)
-    {
-        throw new NotImplementedException();
-    }
-    public Task<UserReviewsDto> GetUserReviewsAsync(string userId)
-    {
-        throw new NotImplementedException();
-    }
 
     public async Task<_cosmos.ItemResponse<ReviewDto>> PostReviewAsync(ReviewDto review)
     {
-        var response = await container.CreateItemAsync(review, new _cosmos.PartitionKey(Convert.ToString(review.Id)));
+        var response = await container.CreateItemAsync(review, new _cosmos.PartitionKey(review.MovieId.ToString()));
         return response;
     }
-    public Task<ReviewDto> PatchReviewAsync(string id, ReviewDto review)
+    public async Task<_cosmos.ItemResponse<ReviewDto>> PatchReviewAsync(ReviewDto review)
     {
-        throw new NotImplementedException();
+        //var response = await container.ReplaceItemAsync(review,Convert.ToString(review.ReviewId), new _cosmos.PartitionKey(Convert.ToString(review.ReviewId)));
+        var patchOp = new List<_cosmos.PatchOperation>
+        {
+            _cosmos.PatchOperation.Replace("/rating", review.Rating),
+            _cosmos.PatchOperation.Replace("/review",review.Review),
+            _cosmos.PatchOperation.Replace("/reviewDate", DateTime.UtcNow)
+        };
+        var response = await container.PatchItemAsync<ReviewDto>(review.ReviewId.ToString(),
+                                                                new _cosmos.PartitionKey(review.MovieId.ToString()),
+                                                                patchOp);
+        return response;
     }
     public Task<bool> DeleteReviewAsync(string id)
     {

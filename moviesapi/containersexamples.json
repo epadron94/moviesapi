@@ -1,0 +1,40 @@
+/*USER*/
+{
+    "id": <user-object-id> Guid,
+    "userId": <user-object-id> Guid,//PARTITION KEY
+    "entityType" : "user",
+    "username": <user-name> string,
+    
+},
+{
+    "id": <review-id> Guid,
+    "userId":<user-object-id> Guid, //PARTITION KEY
+    "entityType": "review",
+    "reviewId":<review-id> Guid,
+    "movieId": <movie-id> Guid,
+    "rating": <review-rating>[0-10] int,
+    "review": <review> string,
+}
+
+/*MOVIE*/
+{
+    "id": <movie-id> Guid,
+    "entityType": "movie",
+    "movieId": <movie-id> Guid, //PARTITION KEY
+    "title": <movie-title> string,
+    "releaseYear":<movie-year> int,
+    "releaseDate": <movie-release-date> Datetime,
+    "plot":<movie-plot> string,
+    "rating":<movie-rating>[0-10] int,
+    "runtimeMin"<movie-runtime-minutes> int
+}
+/*REVIEW*/
+{
+    "id": <review-id> Guid,
+    "userId":<user-object-id> Guid,
+    "entityType":"review",
+    "reviewId":<review-id> Guid,
+    "movieId": <movie-id> Guid, //PARTITION KEY
+    "rating": <review-rating>[0-10] int,
+    "review": <review> string,
+}

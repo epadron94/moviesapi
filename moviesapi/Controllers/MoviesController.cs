@@ -33,8 +33,8 @@ public class MoviesController : ControllerBase
     [HttpGet("api/movies/getmovie")]
     public async Task<IActionResult> GetMovie(string id)
     {
-        var result = await service.GetMovieById(id);
-        return Ok(result);   
+        var (result, requestCharge)= await service.GetMovieById(id);
+        return Ok(new {result, requestCharge});   
     }
 
     [Authorize]
@@ -43,8 +43,8 @@ public class MoviesController : ControllerBase
     {
 
         if(continuationToken is not null  && !utilities.IsBase64(continuationToken)) throw new ArgumentNullException("continuationToken is not valid");
-        var (result, nextToken) = await service.GetMovieReviews(pageSize,continuationToken, movieId);
-        return Ok(new {result, nextToken});
+        var (result, nextToken, requestCharge) = await service.GetMovieReviews(pageSize,continuationToken, movieId);
+        return Ok(new {result, nextToken, requestCharge});
 
     }
 

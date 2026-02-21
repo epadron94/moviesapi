@@ -38,5 +38,5 @@ az cosmosdb sql container create \
     --database-name $databaseName \
     --resource-group $resourceGroup \
     --name Review \
-    --partition-key-path "/reviewId" \
+    --partition-key-path "/movieId" \
     --idx @moviesapi/scripting/Containers/ReviewCompositeIndex.json

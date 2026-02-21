@@ -22,8 +22,8 @@ public class UserController : ControllerBase
     {
         string userObjectId = User.FindFirstValue("http://schemas.microsoft.com/identity/claims/objectidentifier");
         Guid userId = new Guid(userObjectId);
-        var(response, nextToken) = await service.GetUserReviews(pageSize, userId,continuationToken);
-        return Ok(new {response, nextToken});
+        var(response, nextToken, requestCharge) = await service.GetUserReviews(pageSize, userId,continuationToken);
+        return Ok(new {response, nextToken, requestCharge});
     }
 
     

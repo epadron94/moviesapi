@@ -22,8 +22,27 @@ public class ReviewController : ControllerBase
 
         string userObjectId = User.FindFirstValue("http://schemas.microsoft.com/identity/claims/objectidentifier");
         review.UserId= new Guid(userObjectId);
-        var response = await service.postReview(review);
-        return Ok();
+        var (response, requestCharge) = await service.postReview(review);
+        Console.WriteLine("Post review request charge: " + requestCharge);
+        return Ok(requestCharge);
+    }
+
+    [Authorize]
+    [HttpPatch("api/reviews/patchReview")]
+    public async Task<IActionResult> PatchReview([FromBody]ReviewDto review)
+    {
+        if(!review.Id.Equals(review.ReviewId))
+            throw new ArgumentException("reviewId mismatched");
+        
+        string userObjectId = User.FindFirstValue("http://schemas.microsoft.com/identity/claims/objectidentifier");
+        review.UserId= new Guid(userObjectId);
+        
+        var (response, requestCharge) = await service.PatchReview(review);
+        Console.WriteLine("PatchReview requestCharge: " + requestCharge.ToString());
+        
+        return Ok(requestCharge);
+        
+
     }
 
 

@@ -62,13 +62,13 @@ public class MovieProcess : IMovieProcess//BaseProcess<Movie>
         }
     }
 
-    public async Task<MovieDto> GetMovieById(string id)
+    public async Task<(MovieDto, double)> GetMovieById(string id)
     {
         var result = new MovieDto();
         var response = await container.ReadItemAsync<MovieDto>(id,new _cosmos.PartitionKey(id));
         result = response.Resource;
 
-        return result;
+        return (result, response.RequestCharge);
     }
     public async Task<bool> ItemExistsAsync(Guid Id)
     {
@@ -89,7 +89,7 @@ public class MovieProcess : IMovieProcess//BaseProcess<Movie>
         var response = await container.CreateItemAsync(review, new _cosmos.PartitionKey(Convert.ToString(review.MovieId)));
         return response;
     }
-    public async Task<(List<ReviewDto>, string ContinuationToken)> GetMovieReviewsAsync(int pageSize, string continuationToken, Guid movieId)
+    public async Task<(List<ReviewDto>, string ContinuationToken, double requestCharge)> GetMovieReviewsAsync(int pageSize, string continuationToken, Guid movieId)
     {
         var result = new List<ReviewDto>();
         var token = utilities.Decode(continuationToken);
@@ -107,11 +107,25 @@ public class MovieProcess : IMovieProcess//BaseProcess<Movie>
         result.AddRange(response.Resource);
 
         string continuationTokenEncoded = utilities.Encode(response.ContinuationToken);
-        return (result, continuationTokenEncoded);
+        return (result, continuationTokenEncoded,response.RequestCharge);
 
     }
 
+    public async Task<ItemResponse<ReviewDto>> PatchMovieReviewAsync(ReviewDto review)
+    {
+        //var response = await container.ReplaceItemAsync(review,review.MovieId.ToString(), new _cosmos.PartitionKey(review.MovieId.ToString()));
+        var patchOp = new List<_cosmos.PatchOperation>
+        {
+            _cosmos.PatchOperation.Replace("/rating", review.Rating),
+            _cosmos.PatchOperation.Replace("/review",review.Review),
+            _cosmos.PatchOperation.Replace("/reviewDate", DateTime.UtcNow)
+        };
 
+        var response = await container.PatchItemAsync<ReviewDto>(review.Id.ToString(),
+                                                                 new PartitionKey(review.MovieId.ToString()),
+                                                                 patchOp); 
+        return response;
+    }
 }
 
 

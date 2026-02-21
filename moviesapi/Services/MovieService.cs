@@ -22,15 +22,18 @@ public class MovieService
         return(_response, _continuationToken, _cost);
     }
 
-    public async Task<MovieDto> GetMovieById(string id)
+    public async Task<(MovieDto, double)> GetMovieById(string id)
     {
-        var result = await _unitOfWork.MovieProcess.GetMovieById(id);
-        return result;   
+        var (result, requestCharge) = await _unitOfWork.MovieProcess.GetMovieById(id);
+        return (result, requestCharge);   
     }
 
-    public async Task<(List<ReviewDto>, string ContinuationToken)> GetMovieReviews(int pageSize, string continuationToken, Guid movieId)
+    public async Task<(List<ReviewDto>, string ContinuationToken, double requestCharge)> GetMovieReviews(int pageSize, string continuationToken, Guid movieId)
     {
-        var (_response, _continuationToken) = await _unitOfWork.MovieProcess.GetMovieReviewsAsync(pageSize, continuationToken,movieId);
-        return (_response, _continuationToken);
+        var (_response, _continuationToken, requestCharge) = await _unitOfWork.MovieProcess.GetMovieReviewsAsync(pageSize, continuationToken,movieId);
+        return (_response, _continuationToken, requestCharge);
     }
+
+    
+
 }

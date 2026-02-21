@@ -23,7 +23,7 @@ public class UserProcess :IUserProcess
         return response;
     }
 
-    public async Task<(List<ReviewDto>, string continuationToken)> GetUserReviews(int pageSize,Guid userId, string continuationToken)
+    public async Task<(List<ReviewDto>, string, double)> GetUserReviews(int pageSize,Guid userId, string continuationToken)
     {
         var result = new List<ReviewDto>();
         var token = utilities.Decode(continuationToken);
@@ -41,6 +41,21 @@ public class UserProcess :IUserProcess
         result.AddRange(response.Resource);
 
         string continuationTokenEncoded = utilities.Encode(response.ContinuationToken);
-        return (result, continuationTokenEncoded);
+        return (result, continuationTokenEncoded, response.RequestCharge);
+    }
+
+    public async Task<ItemResponse<ReviewDto>> PatchUserReviewAsync(ReviewDto review)
+    {
+        //var response = await container.ReplaceItemAsync(review,Convert.ToString(review.UserId),new PartitionKey(Convert.ToString(review.UserId)));
+        var patchOp = new List<PatchOperation>
+        {
+            PatchOperation.Replace("/rating", review.Rating),
+            PatchOperation.Replace("/review",review.Review),
+            PatchOperation.Replace("/reviewDate", DateTime.UtcNow)
+        };
+        var response = await container.PatchItemAsync<ReviewDto>(review.Id.ToString(), 
+                                                                 new PartitionKey(review.UserId.ToString()),
+                                                                 patchOp);
+        return response;
     }
 }
