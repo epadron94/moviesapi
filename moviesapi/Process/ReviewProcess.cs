@@ -4,16 +4,20 @@ using  _cosmos=Microsoft.Azure.Cosmos;
 using moviesapi.Models;
 using moviesapi.Interfaces;
 using moviesapi.Models.Dto;
+using moviesapi.Utilities;
 
 public class ReviewProcess : IReviewProcess
 {
     private readonly CosmosDbService cosmosService;
     private readonly _cosmos.Container container;
+    private readonly Utilities utilities;
 
-    public ReviewProcess(CosmosDbService service)
+    public ReviewProcess(CosmosDbService service, Utilities _utilities)
     {
         cosmosService = service;
         container = cosmosService.GetContainerInstance<Review>();
+        utilities =_utilities;
+
     }
 
     public Task<ReviewDto> GetReviewAsync(string id)
@@ -45,6 +49,26 @@ public class ReviewProcess : IReviewProcess
         throw new NotImplementedException();
     }
 
+    public async Task<(List<ReviewDto>, string ContinuationToken, double requestCharge)> GetMovieReviewsAsync(int pageSize, string continuationToken, Guid movieId)
+    {
+        var result = new List<ReviewDto>();
+        var token = utilities.Decode(continuationToken);
+        var query = new _cosmos.QueryDefinition("SELECT c.id, c.userId, c.reviewId, c.rating, c.review, c.reviewDate, c.movieId from c WHERE c.entityType=@entityType AND c.movieId=@movieId")
+                    .WithParameter("@entityType","review")
+                    .WithParameter("@movieId", Convert.ToString(movieId));
 
+        var opts = new _cosmos.QueryRequestOptions
+        {
+            MaxItemCount = pageSize,
+            PartitionKey = new _cosmos.PartitionKey(Convert.ToString(movieId))
+        };
+        var iterator = container.GetItemQueryIterator<ReviewDto>(query,token,opts);
+        var response = await iterator.ReadNextAsync();
+        result.AddRange(response.Resource);
+
+        string continuationTokenEncoded = utilities.Encode(response.ContinuationToken);
+        return (result, continuationTokenEncoded,response.RequestCharge);
+
+    }
 
 }

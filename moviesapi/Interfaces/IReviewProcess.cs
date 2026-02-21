@@ -8,6 +8,7 @@ public interface IReviewProcess
     Task<ItemResponse<ReviewDto>> PostReviewAsync(ReviewDto review);
     Task<ItemResponse<ReviewDto>> PatchReviewAsync(ReviewDto review);
     Task<bool> DeleteReviewAsync(string id);
+    Task<(List<ReviewDto>, string ContinuationToken, double requestCharge)> GetMovieReviewsAsync(int pageSize, string continuationToken, Guid movieId);
 
 
 }

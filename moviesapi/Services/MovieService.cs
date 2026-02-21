@@ -30,7 +30,7 @@ public class MovieService
 
     public async Task<(List<ReviewDto>, string ContinuationToken, double requestCharge)> GetMovieReviews(int pageSize, string continuationToken, Guid movieId)
     {
-        var (_response, _continuationToken, requestCharge) = await _unitOfWork.MovieProcess.GetMovieReviewsAsync(pageSize, continuationToken,movieId);
+        var (_response, _continuationToken, requestCharge) = await _unitOfWork.ReviewProcess.GetMovieReviewsAsync(pageSize, continuationToken,movieId);
         return (_response, _continuationToken, requestCharge);
     }
 

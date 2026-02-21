@@ -43,7 +43,7 @@ public class UnitOfWork : IUnitOfWork
         _utilities = utilities;
     }
 
-    public IReviewProcess ReviewProcess => _reviewProcess ??= new ReviewProcess(_cosmosDbService);
+    public IReviewProcess ReviewProcess => _reviewProcess ??= new ReviewProcess(_cosmosDbService, _utilities);
     public IMovieProcess MovieProcess => _movieProcess ??= new MovieProcess(_cosmosDbService, _utilities);
     public IUserProcess UserProcess => _userProcess ??= new UserProcess(_cosmosDbService, _utilities);
 }

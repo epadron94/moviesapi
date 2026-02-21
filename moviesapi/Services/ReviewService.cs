@@ -24,15 +24,18 @@ public class ReviewService
 
         double totalRequestCharge = 0;
         //2.Post Review (review container)
-        var response = await unitOfWork.ReviewProcess.PostReviewAsync(review);
-        totalRequestCharge += response.RequestCharge;
+        var postReviewTsk =  unitOfWork.ReviewProcess.PostReviewAsync(review);
+        
+        //totalRequestCharge += response.RequestCharge;
         //3. Post User review(user container)
-        var userResponse = await unitOfWork.UserProcess.postUserReview(review);
-        totalRequestCharge += userResponse.RequestCharge;
+        var postUserReviewTsk = unitOfWork.UserProcess.postUserReview(review);
+
+        var responses = await Task.WhenAll(postReviewTsk, postUserReviewTsk);
+        //totalRequestCharge += userResponse.RequestCharge;
         //4. Post Movie review(movie container)
         //var movieResponse = await unitOfWork.MovieProcess.PostMovieReview(review);
         //totalRequestCharge +=movieResponse.RequestCharge;
-        return (response.StatusCode, totalRequestCharge);        
+        return (responses[0].StatusCode, totalRequestCharge);        
     }
 
     public async Task<(HttpStatusCode code , double requestCharge)> PatchReview(ReviewDto review)
