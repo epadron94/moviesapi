@@ -5,6 +5,7 @@ using moviesapi.Models;
 using moviesapi.Interfaces;
 using moviesapi.Models.Dto;
 using moviesapi.Utilities;
+using moviesapi.Models.Responses;
 
 public class ReviewProcess : IReviewProcess
 {
@@ -19,16 +20,23 @@ public class ReviewProcess : IReviewProcess
         utilities =_utilities;
 
     }
-
     public Task<ReviewDto> GetReviewAsync(string id)
     {
         throw new NotImplementedException();
     }
-
-    public async Task<_cosmos.ItemResponse<ReviewDto>> PostReviewAsync(ReviewDto review)
+    public async Task<ReviewResponse> PostReviewAsync(ReviewDto review)
     {
-        var response = await container.CreateItemAsync(review, new _cosmos.PartitionKey(review.MovieId.ToString()));
-        return response;
+        try
+        {
+            var response = await container.CreateItemAsync(review, new _cosmos.PartitionKey(review.MovieId.ToString()));
+            return new ReviewResponse(response);
+        }
+        catch(_cosmos.CosmosException ex)
+        {
+            return new ReviewResponse(ex);
+        }
+        //throw new _cosmos.CosmosException("test- Request was throttled", HttpStatusCode.TooManyRequests,0,string.Empty, 0);
+        
     }
     public async Task<_cosmos.ItemResponse<ReviewDto>> PatchReviewAsync(ReviewDto review)
     {
@@ -44,11 +52,11 @@ public class ReviewProcess : IReviewProcess
                                                                 patchOp);
         return response;
     }
-    public Task<bool> DeleteReviewAsync(string id)
+    public async Task<bool> DeleteReviewAsync(Guid reviewId, Guid movieId)
     {
-        throw new NotImplementedException();
+        var response = await container.DeleteItemAsync<ReviewDto>(reviewId.ToString(),new _cosmos.PartitionKey(movieId.ToString()));
+        return true;
     }
-
     public async Task<(List<ReviewDto>, string ContinuationToken, double requestCharge)> GetMovieReviewsAsync(int pageSize, string continuationToken, Guid movieId)
     {
         var result = new List<ReviewDto>();

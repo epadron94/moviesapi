@@ -4,6 +4,8 @@ using moviesapi.Interfaces;
 using moviesapi.Services;
 using moviesapi.Utilities;
 using moviesapi.Models.Dto;
+using moviesapi.Models.Responses;
+using System.Net;
 
 public class UserProcess :IUserProcess
 {
@@ -17,10 +19,17 @@ public class UserProcess :IUserProcess
         utilities = _utilities;
     }
 
-    public async Task<ItemResponse<ReviewDto>> postUserReview(ReviewDto userReview)
+    public async Task<ReviewResponse> postUserReview(ReviewDto userReview)
     {
-        var response = await container.CreateItemAsync(userReview, new PartitionKey(Convert.ToString(userReview.UserId)));
-        return response;
+        try
+        {
+            var response = await container.CreateItemAsync(userReview, new PartitionKey(Convert.ToString(userReview.UserId)));    
+            return new ReviewResponse(response);
+        }
+        catch(CosmosException ex)
+        {
+            return new ReviewResponse(ex);
+        }
     }
 
     public async Task<(List<ReviewDto>, string, double)> GetUserReviews(int pageSize,Guid userId, string continuationToken)

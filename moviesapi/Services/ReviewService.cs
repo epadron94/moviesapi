@@ -17,25 +17,49 @@ public class ReviewService
 
     public async Task<(HttpStatusCode statusCode, double requestCharge)> postReview(ReviewDto review)
     {
-
-        //1.validate movieIdExists
-        bool movieExists = await unitOfWork.MovieProcess.ItemExistsAsync(review.MovieId);
-        if(!movieExists) throw new ArgumentException("MovieId not found");
+        /*This is a first version for storing reviews, as is needed  query reviews by movie and by user,
+        in order to avoid cross-partition querys and save RUs, I've decided to duplicate the document in both containers,
+        in addition... to ensure data integrity  when saving data I've built this 'transaction', 
+        in the future I'll explore how to improve this component using cosmosdb change feed through an AZF
+        is the "cosmos way" to work with multiple operations in cosmosdb, and I need to learn about it*/
 
         double totalRequestCharge = 0;
-        //2.Post Review (review container)
-        var postReviewTsk =  unitOfWork.ReviewProcess.PostReviewAsync(review);
+        try
+        {
+            //1.validate movieIdExists
+            bool movieExists = await unitOfWork.MovieProcess.ItemExistsAsync(review.MovieId);
+            if(!movieExists) 
+                throw new ArgumentException("MovieId not found");
+            
+            //2.Post Review (review container)      
+            var postReviewTsk = await  unitOfWork.ReviewProcess.PostReviewAsync(review);
+            //As any change was made in the container, only throw the exception and exit
+            if(postReviewTsk.GetException is not null)
+                throw postReviewTsk.GetException;
+            //if success, retrieve operation charge
+            totalRequestCharge += postReviewTsk.GetReview.RequestCharge;
+            //3. Post Review User container
+            var postUserReviewTsk = await unitOfWork.UserProcess.postUserReview(review);
+            if(postUserReviewTsk.GetException is not null)
+            {
+                //ROLLBACK TRANSACTION
+                // at this point, as post in User container failed and the update was not made, rollback in review container
+                await deleteReview(review.ReviewId, review.MovieId);
+                throw postUserReviewTsk.GetException;
+            }
+                
+            
+            totalRequestCharge += postUserReviewTsk.GetReview.RequestCharge;    
+        }
+        catch(Exception ex ) 
+        {
+            throw ex;
+        }
         
-        //totalRequestCharge += response.RequestCharge;
-        //3. Post User review(user container)
-        var postUserReviewTsk = unitOfWork.UserProcess.postUserReview(review);
-
-        var responses = await Task.WhenAll(postReviewTsk, postUserReviewTsk);
-        //totalRequestCharge += userResponse.RequestCharge;
         //4. Post Movie review(movie container)
         //var movieResponse = await unitOfWork.MovieProcess.PostMovieReview(review);
         //totalRequestCharge +=movieResponse.RequestCharge;
-        return (responses[0].StatusCode, totalRequestCharge);        
+        return (HttpStatusCode.OK, totalRequestCharge);        
     }
 
     public async Task<(HttpStatusCode code , double requestCharge)> PatchReview(ReviewDto review)
@@ -56,4 +80,15 @@ public class ReviewService
         return  (reviewResponse.StatusCode, totalRequestCharge);
     }
 
+    private async Task deleteReview(Guid reviewId, Guid movieId)
+    {
+        try
+        {
+            var review = await unitOfWork.ReviewProcess.DeleteReviewAsync(reviewId, movieId);
+        }
+        catch(Exception ex)
+        {
+            throw ex;
+        }
+    }
 }
