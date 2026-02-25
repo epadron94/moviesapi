@@ -6,5 +6,7 @@ public interface IUserProcess
 {
     Task<ReviewResponse> postUserReview(ReviewDto userReview);
     Task<(List<ReviewDto>,string, double)> GetUserReviews(int pageSize, Guid userId, string continuationToken=null);
-    Task<ItemResponse<ReviewDto>> PatchUserReviewAsync(ReviewDto review);
+    Task<ReviewResponse> PatchUserReviewAsync(ReviewDto review);
+    Task<bool> DeleteUserReview(Guid reviewId, Guid userId);
+    Task<ItemResponse<ReviewDto>> GetReview(Guid reviewId, Guid userId);
 }

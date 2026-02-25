@@ -31,8 +31,7 @@ public class MovieProcess : IMovieProcess//BaseProcess<Movie>
         try
         {
             var token = utilities.Decode(continuationToken);
-            var query = new QueryDefinition("SELECT c.id, c.title, c.releaseYear, c.releaseDate, c.plot, c.rating, c.runtimeMin FROM c WHERE c.entityType=@entityType ORDER BY c.releaseDate DESC")
-                                            .WithParameter("@entityType","movie");
+            var query = new QueryDefinition("SELECT c.id, c.title, c.releaseYear, c.releaseDate, c.plot, c.rating, c.runtimeMin FROM c ORDER BY c.releaseDate DESC");
             var requestOptions = new _cosmos.QueryRequestOptions
             {
                 MaxItemCount = pageSize
@@ -90,7 +89,7 @@ public class MovieProcess : IMovieProcess//BaseProcess<Movie>
         return response;
     }
 
-
+    [Obsolete]
     public async Task<ItemResponse<ReviewDto>> PatchMovieReviewAsync(ReviewDto review)
     {
         //var response = await container.ReplaceItemAsync(review,review.MovieId.ToString(), new _cosmos.PartitionKey(review.MovieId.ToString()));

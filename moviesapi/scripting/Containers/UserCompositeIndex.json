@@ -1,36 +1,37 @@
 {
     "compositeIndexes":[
         [
-            { "path": "/releaseDate", "order": "descending"},
+            { "path": "/reviewDate", "order": "descending"},
             { "path": "/rating", "order": "descending" }
         ]
     ],
     "includedPaths":[
         {
-            "path": "/movieId/?",
+            "path": "/userId/?",
             "indexes":[]
         },
         {
-            "path": "/releaseDate/?",
+            "path":"/entityType/?",
             "indexes":[]
         },
         {
-            "path": "/rating/?",
+            "path":"/reviewDate/?",
+            "indexes":[]
+        },
+        {
+            "path":"/rating/?",
             "indexes":[]
         }
     ],
     "excludedPaths":[
         {
-            "path": "/title/?"
+            "path":"/reviewId/?"
         },
         {
-            "path": "/releaseYear/?"
+            "path":"/movieId/?"
         },
         {
-            "path": "/plot/?"
-        },
-        {
-            "path": "/runtimeMin/?"
+            "path":"/review/?"
         },
         {
             "path": "/*"

@@ -7,7 +7,7 @@ using moviesapi.Models.Dto;
 using moviesapi.Models.Responses;
 using System.Net;
 
-public class UserProcess :IUserProcess
+public class UserProcess : IUserProcess
 {
     private readonly CosmosDbService service;
     private readonly Container container;
@@ -36,7 +36,7 @@ public class UserProcess :IUserProcess
     {
         var result = new List<ReviewDto>();
         var token = utilities.Decode(continuationToken);
-        var query = new QueryDefinition("SELECT c.id, c.userId, c.reviewId, c.rating, c.review, c.reviewDate, c.movieId from c WHERE c.entityType=@entityType AND c.userId=@userId")
+        var query = new QueryDefinition("SELECT c.id, c.userId, c.reviewId, c.rating, c.review, c.reviewDate, c.movieId from c WHERE c.entityType=@entityType AND c.userId=@userId ORDER BY c.reviewDate DESC")
                     .WithParameter("@entityType","review")
                     .WithParameter("@userId", Convert.ToString(userId));
 
@@ -53,18 +53,41 @@ public class UserProcess :IUserProcess
         return (result, continuationTokenEncoded, response.RequestCharge);
     }
 
-    public async Task<ItemResponse<ReviewDto>> PatchUserReviewAsync(ReviewDto review)
+    public async Task<ReviewResponse> PatchUserReviewAsync(ReviewDto review)
     {
-        //var response = await container.ReplaceItemAsync(review,Convert.ToString(review.UserId),new PartitionKey(Convert.ToString(review.UserId)));
-        var patchOp = new List<PatchOperation>
+        try
         {
-            PatchOperation.Replace("/rating", review.Rating),
-            PatchOperation.Replace("/review",review.Review),
-            PatchOperation.Replace("/reviewDate", DateTime.UtcNow)
-        };
-        var response = await container.PatchItemAsync<ReviewDto>(review.Id.ToString(), 
-                                                                 new PartitionKey(review.UserId.ToString()),
-                                                                 patchOp);
+            var patchOp = new List<PatchOperation>
+            {
+                PatchOperation.Replace("/rating", review.Rating),
+                PatchOperation.Replace("/review",review.Review),
+                PatchOperation.Replace("/reviewDate", DateTime.UtcNow)
+            };
+            PatchItemRequestOptions opts =  new PatchItemRequestOptions
+            {
+                EnableContentResponseOnWrite = false
+            };
+            var response = await container.PatchItemAsync<ReviewDto>(review.Id.ToString(), 
+                                                                    new PartitionKey(review.UserId.ToString()),
+                                                                    patchOp,
+                                                                    opts);    
+            return new ReviewResponse(response);
+        }
+        catch(CosmosException ex)
+        {
+            return new ReviewResponse(ex);
+        }
+    }
+
+    public async Task<bool> DeleteUserReview(Guid reviewId, Guid userId)
+    {
+        var response = await container.DeleteItemAsync<ReviewDto>(reviewId.ToString(), new PartitionKey(userId.ToString()));
+        return true;
+    }
+
+    public async Task<ItemResponse<ReviewDto>> GetReview(Guid reviewId, Guid userId)
+    {
+        var response = await container.ReadItemAsync<ReviewDto>(reviewId.ToString(), new PartitionKey(userId.ToString()));
         return response;
     }
 }

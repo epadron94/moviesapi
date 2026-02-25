@@ -44,6 +44,16 @@ public class ReviewController : ControllerBase
         
 
     }
+    
+    [Authorize]
+    [HttpDelete("api/reviews/deleteReview")]
+    public async Task<IActionResult> DeleteReview([FromQuery]Guid reviewId,[FromQuery] Guid movieId)
+    {
+        string userObjectId = User.FindFirstValue("http://schemas.microsoft.com/identity/claims/objectidentifier");
+        Guid userId = new Guid(userObjectId);
+        var response = await service.DeleteReview(reviewId, movieId, userId);
+        return Ok(response);
+    }
 
 
 }

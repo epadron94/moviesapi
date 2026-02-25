@@ -4,5 +4,29 @@
             {"path": "/reviewDate", "order": "descending"},
             {"path": "/rating", "order": "descending"}
         ]
+    ],
+    "includedPaths":[
+        {
+            "path": "/movieId/?",
+            "indexes":[]
+        }
+    ],
+    "excludedPaths":[
+        {
+            "path": "/userId/*"
+        },
+        {
+            "path": "/entityType/*"
+        },
+        {
+            "path": "/reviewId/*"
+        },
+        {
+            "path": "/review/*"
+        },
+        {
+            "path": "/*"
+        }
     ]
 }
+

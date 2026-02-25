@@ -1,0 +1,1043 @@
+[{
+  "id": "f8b3d9c1-4e2a-4b5f-9a1d-3c7e8f2b6d4a",
+  "entityType": "movie",
+  "movieId": "f8b3d9c1-4e2a-4b5f-9a1d-3c7e8f2b6d4a",
+  "title": "Inception",
+  "releaseYear": "2010",
+  "releaseDate": "2010-07-16T00:00:00Z",
+  "plot": "Dom Cobb is a skilled thief who specializes in extracting secrets from deep within the subconscious during the dream state. His rare ability has made him a coveted player in this treacherous new world of corporate espionage, but it has also cost him everything he loves. Cobb gets a chance at redemption when he is offered an impossible task: Plant an idea in someone's mind.",
+  "rating": 9,
+  "runtimeMin": 148
+}
+,
+{
+  "id": "2a9f5c7d-8e3b-4f1a-b6d9-7c4e2a8f5b1d",
+  "entityType": "movie",
+  "movieId": "2a9f5c7d-8e3b-4f1a-b6d9-7c4e2a8f5b1d",
+  "title": "The Shawshank Redemption",
+  "releaseYear": "1994",
+  "releaseDate": "1994-09-23T00:00:00Z",
+  "plot": "Andy Dufresne, a successful banker, is arrested for the murders of his wife and her lover, and is sentenced to life imprisonment at the Shawshank prison. He becomes friends with Red, and they spend nearly two decades together, during which Andy becomes instrumental in a money-laundering operation. Andy maintains his innocence throughout, and eventually escapes through a tunnel he dug over the years.",
+  "rating": 10,
+  "runtimeMin": 142
+}
+,
+{
+  "id": "7c3e9a1b-5f2d-4a8c-9b6e-1d4f7a2c8e5b",
+  "entityType": "movie",
+  "movieId": "7c3e9a1b-5f2d-4a8c-9b6e-1d4f7a2c8e5b",
+  "title": "Pulp Fiction",
+  "releaseYear": "1994",
+  "releaseDate": "1994-10-14T00:00:00Z",
+  "plot": "The lives of two mob hitmen, a boxer, a gangster and his wife intertwine in four tales of violence and redemption. Vincent Vega and Jules Winnfield are hitmen with a penchant for philosophical discussions. The film explores themes of redemption and the unpredictability of life through its non-linear narrative structure.",
+  "rating": 9,
+  "runtimeMin": 154
+}
+,
+{
+  "id": "4b8d2e9f-1a7c-4d5e-8b3f-6a9c2e7d4f1b",
+  "entityType": "movie",
+  "movieId": "4b8d2e9f-1a7c-4d5e-8b3f-6a9c2e7d4f1b",
+  "title": "The Dark Knight",
+  "releaseYear": "2008",
+  "releaseDate": "2008-07-18T00:00:00Z",
+  "plot": "Batman raises the stakes in his war on crime with the help of Lt. Jim Gordon and District Attorney Harvey Dent. Together, they work to dismantle the remaining criminal organizations that plague Gotham. However, their partnership is derailed when they become prey to a reign of chaos unleashed by a rising criminal mastermind known as the Joker.",
+  "rating": 9,
+  "runtimeMin": 152
+}
+,
+{
+  "id": "9e2a5f8c-7d4b-4a1e-9c6f-3b8d1a7e5c2f",
+  "entityType": "movie",
+  "movieId": "9e2a5f8c-7d4b-4a1e-9c6f-3b8d1a7e5c2f",
+  "title": "Forrest Gump",
+  "releaseYear": "1994",
+  "releaseDate": "1994-07-06T00:00:00Z",
+  "plot": "Forrest Gump, a slow-witted but kind-hearted man from Alabama, witnesses and unwittingly influences several defining historical events in the 20th century United States. Despite his low IQ, he achieves remarkable success in various fields including college football, the Vietnam War, ping-pong diplomacy, and shrimp business, all while pining for his childhood sweetheart Jenny.",
+  "rating": 9,
+  "runtimeMin": 142
+}
+,
+{
+  "id": "6d1c8e4a-9b2f-4e7d-8a5c-2f9b7e3d1a6c",
+  "entityType": "movie",
+  "movieId": "6d1c8e4a-9b2f-4e7d-8a5c-2f9b7e3d1a6c",
+  "title": "The Matrix",
+  "releaseYear": "1999",
+  "releaseDate": "1999-03-31T00:00:00Z",
+  "plot": "Thomas Anderson, a computer programmer by day and hacker by night under the alias Neo, discovers that reality as he knows it is actually a simulated reality called the Matrix, created by sentient machines to distract humans while using their bodies as an energy source. Neo joins a group of rebels fighting to free humanity from this digital prison.",
+  "rating": 9,
+  "runtimeMin": 136
+}
+,
+{
+  "id": "3f7a9e2b-8c4d-4b1f-9e6a-5d2c8f7b4a1e",
+  "entityType": "movie",
+  "movieId": "3f7a9e2b-8c4d-4b1f-9e6a-5d2c8f7b4a1e",
+  "title": "Goodfellas",
+  "releaseYear": "1990",
+  "releaseDate": "1990-09-19T00:00:00Z",
+  "plot": "The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito. The film chronicles their rise through the criminal underworld and their eventual fall, based on the true story of Henry Hill's involvement with the Italian-American crime syndicate.",
+  "rating": 9,
+  "runtimeMin": 146
+}
+,
+{
+  "id": "8a4f9c2e-7b1d-4e5a-9c8f-6d3a2e7b5f4c",
+  "entityType": "movie",
+  "movieId": "8a4f9c2e-7b1d-4e5a-9c8f-6d3a2e7b5f4c",
+  "title": "Fight Club",
+  "releaseYear": "1999",
+  "releaseDate": "1999-10-15T00:00:00Z",
+  "plot": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more. The unnamed narrator, dissatisfied with his white-collar job and materialistic lifestyle, finds catharsis through physical violence. Together with Tyler Durden, they create a secret society aimed at overthrowing modern civilization.",
+  "rating": 9,
+  "runtimeMin": 139
+}
+,
+{
+  "id": "1e9b6d3a-4f8c-4a2e-7b5f-9c2d8a4e6f1b",
+  "entityType": "movie",
+  "movieId": "1e9b6d3a-4f8c-4a2e-7b5f-9c2d8a4e6f1b",
+  "title": "The Lord of the Rings: The Return of the King",
+  "releaseYear": "2003",
+  "releaseDate": "2003-12-17T00:00:00Z",
+  "plot": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring. The final battle for Middle-earth begins as the fellowship reunites to help Frodo complete his quest to destroy the ring and defeat the Dark Lord Sauron once and for all.",
+  "rating": 10,
+  "runtimeMin": 201
+}
+,
+{
+  "id": "5c7e2a9f-8d4b-4f1e-9a6c-3b7d2e8f5a4c",
+  "entityType": "movie",
+  "movieId": "5c7e2a9f-8d4b-4f1e-9a6c-3b7d2e8f5a4c",
+  "title": "Star Wars: Episode V - The Empire Strikes Back",
+  "releaseYear": "1980",
+  "releaseDate": "1980-05-21T00:00:00Z",
+  "plot": "After the Rebels are brutally overpowered by the Empire on the ice planet Hoth, Luke Skywalker begins Jedi training with Yoda, while his friends are pursued across the galaxy by Darth Vader and bounty hunter Boba Fett. The film culminates in a shocking revelation about Luke's parentage that changes everything.",
+  "rating": 9,
+  "runtimeMin": 124
+}
+,
+{
+  "id": "2d8f4a9e-7c1b-4e5a-8f9c-6a3d7e2b4f5c",
+  "entityType": "movie",
+  "movieId": "2d8f4a9e-7c1b-4e5a-8f9c-6a3d7e2b4f5c",
+  "title": "Schindler's List",
+  "releaseYear": "1993",
+  "releaseDate": "1993-12-15T00:00:00Z",
+  "plot": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis. He works to save over a thousand Jewish refugees from the Holocaust by employing them in his factories, risking his own life and fortune in the process.",
+  "rating": 10,
+  "runtimeMin": 195
+}
+,
+{
+  "id": "9f3b7e1a-6c4d-4a8e-9b2f-5d7c8a3e6b1f",
+  "entityType": "movie",
+  "movieId": "9f3b7e1a-6c4d-4a8e-9b2f-5d7c8a3e6b1f",
+  "title": "Interstellar",
+  "releaseYear": "2014",
+  "releaseDate": "2014-11-07T00:00:00Z",
+  "plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival. Earth is becoming uninhabitable, and former NASA pilot Cooper must leave his family behind to lead an expedition beyond our galaxy to discover whether mankind has a future among the stars.",
+  "rating": 9,
+  "runtimeMin": 169
+}
+,
+{
+  "id": "4a8e2f9c-7d1b-4e5a-8c6f-3b9d2a7e5f4c",
+  "entityType": "movie",
+  "movieId": "4a8e2f9c-7d1b-4e5a-8c6f-3b9d2a7e5f4c",
+  "title": "Parasite",
+  "releaseYear": "2019",
+  "releaseDate": "2019-05-30T00:00:00Z",
+  "plot": "The struggling Kim family sees an opportunity when the son starts tutoring the daughter of the wealthy Park family. Soon, all four members of the Kim family infiltrate the Parks' household by posing as unrelated, highly qualified workers. The film explores themes of class discrimination and social inequality in modern society.",
+  "rating": 9,
+  "runtimeMin": 132
+}
+,
+{
+  "id": "7e9c3a1f-8b4d-4a2e-9f6c-5d8a2e7b3f1c",
+  "entityType": "movie",
+  "movieId": "7e9c3a1f-8b4d-4a2e-9f6c-5d8a2e7b3f1c",
+  "title": "Gladiator",
+  "releaseYear": "2000",
+  "releaseDate": "2000-05-05T00:00:00Z",
+  "plot": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery. Maximus becomes a gladiator and rises through the ranks of the arena to avenge the murders of his family. His journey becomes a quest for justice and redemption in ancient Rome.",
+  "rating": 8,
+  "runtimeMin": 155
+}
+,
+{
+  "id": "6b3d8e2a-9f4c-4a1e-8b7d-2c5f9a3e6d4b",
+  "entityType": "movie",
+  "movieId": "6b3d8e2a-9f4c-4a1e-8b7d-2c5f9a3e6d4b",
+  "title": "The Silence of the Lambs",
+  "releaseYear": "1991",
+  "releaseDate": "1991-02-14T00:00:00Z",
+  "plot": "A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to catch another serial killer who skins his victims. Clarice Starling forms a strange relationship with Dr. Hannibal Lecter as she races against time to save the latest kidnapping victim before it's too late.",
+  "rating": 9,
+  "runtimeMin": 118
+}
+,
+{
+  "id": "3f1c9e7a-8d4b-4e2a-9b6f-5a7c8d2e4f9b",
+  "entityType": "movie",
+  "movieId": "3f1c9e7a-8d4b-4e2a-9b6f-5a7c8d2e4f9b",
+  "title": "Saving Private Ryan",
+  "releaseYear": "1998",
+  "releaseDate": "1998-07-24T00:00:00Z",
+  "plot": "Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action. Captain John Miller leads a squad on a dangerous mission through war-torn France to find Private James Ryan and bring him home, questioning the morality of risking eight men to save one.",
+  "rating": 9,
+  "runtimeMin": 169
+}
+,
+{
+  "id": "8d2e9f4a-7c1b-4a5e-9f8c-3d6a2e7b5f4c",
+  "entityType": "movie",
+  "movieId": "8d2e9f4a-7c1b-4a5e-9f8c-3d6a2e7b5f4c",
+  "title": "The Green Mile",
+  "releaseYear": "1999",
+  "releaseDate": "1999-12-10T00:00:00Z",
+  "plot": "The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift. Paul Edgecomb, the head guard, discovers that John Coffey possesses supernatural healing powers and begins to question whether he is truly guilty of the crimes for which he was convicted.",
+  "rating": 9,
+  "runtimeMin": 189
+}
+,
+{
+  "id": "1a7e4f9c-8d2b-4e5a-9c6f-3b8d2a7e5f4c",
+  "entityType": "movie",
+  "movieId": "1a7e4f9c-8d2b-4e5a-9c6f-3b8d2a7e5f4c",
+  "title": "Seven Samurai",
+  "releaseYear": "1954",
+  "releaseDate": "1954-04-26T00:00:00Z",
+  "plot": "A poor village under attack by bandits recruits seven unemployed samurai to help them defend themselves. The farmers and samurai work together to prepare for the inevitable attack, forming bonds and learning from each other. This epic tale explores themes of duty, honor, and the relationship between different social classes.",
+  "rating": 10,
+  "runtimeMin": 207
+}
+,
+{
+  "id": "5c9e2a7f-8d4b-4f1e-9a6c-3b7d2e8f5a4c",
+  "entityType": "movie",
+  "movieId": "5c9e2a7f-8d4b-4f1e-9a6c-3b7d2e8f5a4c",
+  "title": "Se7en",
+  "releaseYear": "1995",
+  "releaseDate": "1995-09-22T00:00:00Z",
+  "plot": "Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives. Detective William Somerset is about to retire when he's paired with young, ambitious Detective David Mills. Together they investigate a series of elaborate murders that force them to confront the darkest aspects of human nature.",
+  "rating": 9,
+  "runtimeMin": 127
+}
+,
+{
+  "id": "2e8f4a9c-7d1b-4e5a-8f9c-6a3d7e2b4f5c",
+  "entityType": "movie",
+  "movieId": "2e8f4a9c-7d1b-4e5a-8f9c-6a3d7e2b4f5c",
+  "title": "City of God",
+  "releaseYear": "2002",
+  "releaseDate": "2002-08-30T00:00:00Z",
+  "plot": "In the slums of Rio de Janeiro, two boys growing up in the neighborhood take different paths: one becomes a photographer, the other a drug kingpin. The film chronicles three decades of life in the Cidade de Deus suburb, depicting the growth of organized crime and its impact on the community through stunning cinematography and non-linear storytelling.",
+  "rating": 9,
+  "runtimeMin": 130
+}
+,
+{
+  "id": "9a3f7e1c-6b4d-4a8e-9b2f-5d7c8a3e6b1f",
+  "entityType": "movie",
+  "movieId": "9a3f7e1c-6b4d-4a8e-9b2f-5d7c8a3e6b1f",
+  "title": "Spirited Away",
+  "releaseYear": "2001",
+  "releaseDate": "2001-07-20T00:00:00Z",
+  "plot": "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, where humans are changed into beasts. Chihiro must work in a bathhouse for spirits to free herself and her parents and return to the human world. This mystical journey becomes a coming-of-age story about courage and identity.",
+  "rating": 9,
+  "runtimeMin": 125
+}
+,
+{
+  "id": "4b8e2f9a-7c1d-4e5a-8c6f-3b9d2a7e5f4c",
+  "entityType": "movie",
+  "movieId": "4b8e2f9a-7c1d-4e5a-8c6f-3b9d2a7e5f4c",
+  "title": "The Usual Suspects",
+  "releaseYear": "1995",
+  "releaseDate": "1995-08-16T00:00:00Z",
+  "plot": "A sole survivor tells of the twisty events leading up to a horrific gun battle on a boat, which began when five criminals met at a seemingly random police lineup. The story is told through flashbacks as con man Verbal Kint is interrogated by a customs agent following a massacre and fire on a ship docked in San Pedro Bay.",
+  "rating": 9,
+  "runtimeMin": 106
+}
+,
+{
+  "id": "7d9c3e1a-8b4f-4a2e-9f6c-5d8a2e7b3f1c",
+  "entityType": "movie",
+  "movieId": "7d9c3e1a-8b4f-4a2e-9f6c-5d8a2e7b3f1c",
+  "title": "Life is Beautiful",
+  "releaseYear": "1997",
+  "releaseDate": "1997-12-20T00:00:00Z",
+  "plot": "When an Italian Jewish family is sent to a concentration camp, the father uses his imagination to shield his son from the horrors of the Holocaust by pretending they're playing an elaborate game. Guido maintains this fantasy to preserve his son's innocence, turning tragedy into a testament of love and the power of the human spirit.",
+  "rating": 9,
+  "runtimeMin": 116
+}
+,
+{
+  "id": "6c3d8e2a-9f4b-4a1e-8b7d-2c5f9a3e6d4b",
+  "entityType": "movie",
+  "movieId": "6c3d8e2a-9f4b-4a1e-8b7d-2c5f9a3e6d4b",
+  "title": "The Prestige",
+  "releaseYear": "2006",
+  "releaseDate": "2006-10-20T00:00:00Z",
+  "plot": "After a tragic accident, two stage magicians engage in a battle to create the ultimate illusion while sacrificing everything they have to outwit each other. Robert Angier and Alfred Borden were friends and partners until a fateful performance. Their obsessive rivalry leads them down a path of deceit, sabotage, and dangerous secrets.",
+  "rating": 9,
+  "runtimeMin": 130
+}
+,
+{
+  "id": "3a1f9e7c-8d4b-4e2a-9b6f-5a7c8d2e4f9b",
+  "entityType": "movie",
+  "movieId": "3a1f9e7c-8d4b-4e2a-9b6f-5a7c8d2e4f9b",
+  "title": "Whiplash",
+  "releaseYear": "2014",
+  "releaseDate": "2014-10-10T00:00:00Z",
+  "plot": "A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student's potential. Andrew Neiman's passion for drumming is tested by the tyrannical Terence Fletcher, leading to a psychological battle of wills.",
+  "rating": 9,
+  "runtimeMin": 106
+}
+,
+{
+  "id": "8e2d9f4a-7c1b-4a5e-9f8c-3d6a2e7b5f4c",
+  "entityType": "movie",
+  "movieId": "8e2d9f4a-7c1b-4a5e-9f8c-3d6a2e7b5f4c",
+  "title": "The Departed",
+  "releaseYear": "2006",
+  "releaseDate": "2006-10-06T00:00:00Z",
+  "plot": "An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston. As both men become deeper entrenched in their double lives, the pressure mounts and their identities are at risk of being exposed, leading to a tense game of cat and mouse.",
+  "rating": 9,
+  "runtimeMin": 151
+}
+,
+{
+  "id": "1b7e4f9c-8d2a-4e5a-9c6f-3b8d2a7e5f4c",
+  "entityType": "movie",
+  "movieId": "1b7e4f9c-8d2a-4e5a-9c6f-3b8d2a7e5f4c",
+  "title": "Back to the Future",
+  "releaseYear": "1985",
+  "releaseDate": "1985-07-03T00:00:00Z",
+  "plot": "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his friend, Doc Brown. He must make his high-school-age parents fall in love in order to save his own existence while finding a way to return to 1985.",
+  "rating": 8,
+  "runtimeMin": 116
+}
+,
+{
+  "id": "5d9e2a7f-8c4b-4f1e-9a6c-3b7d2e8f5a4c",
+  "entityType": "movie",
+  "movieId": "5d9e2a7f-8c4b-4f1e-9a6c-3b7d2e8f5a4c",
+  "title": "The Lion King",
+  "releaseYear": "1994",
+  "releaseDate": "1994-06-24T00:00:00Z",
+  "plot": "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself. After his father's death, young Simba flees the Pride Lands believing he was responsible. He grows up in exile with new friends, eventually returning to reclaim his rightful place as king and restore balance to the kingdom.",
+  "rating": 8,
+  "runtimeMin": 88
+}
+,
+{
+  "id": "2f8e4a9c-7d1b-4e5a-8f9c-6a3d7e2b4f5c",
+  "entityType": "movie",
+  "movieId": "2f8e4a9c-7d1b-4e5a-8f9c-6a3d7e2b4f5c",
+  "title": "Django Unchained",
+  "releaseYear": "2012",
+  "releaseDate": "2012-12-25T00:00:00Z",
+  "plot": "With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner. Django partners with Dr. King Schultz to hunt down criminals, learning the trade while searching for his lost love Broomhilda. Their mission leads them to the notorious Calvin Candie and his plantation.",
+  "rating": 8,
+  "runtimeMin": 165
+}
+,
+{
+  "id": "9b3a7e1c-6f4d-4a8e-9b2f-5d7c8a3e6b1f",
+  "entityType": "movie",
+  "movieId": "9b3a7e1c-6f4d-4a8e-9b2f-5d7c8a3e6b1f",
+  "title": "WALL-E",
+  "releaseYear": "2008",
+  "releaseDate": "2008-06-27T00:00:00Z",
+  "plot": "In the distant future, a small waste-collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind. WALL-E has spent 700 years cleaning up Earth, developing a personality and falling in love with a sleek probe robot named EVE, leading to an adventure across the galaxy.",
+  "rating": 8,
+  "runtimeMin": 98
+}
+,
+{
+  "id": "4c8e2f9a-7d1b-4e5a-8c6f-3b9d2a7e5f4c",
+  "entityType": "movie",
+  "movieId": "4c8e2f9a-7d1b-4e5a-8c6f-3b9d2a7e5f4c",
+  "title": "Avengers: Infinity War",
+  "releaseYear": "2018",
+  "releaseDate": "2018-04-27T00:00:00Z",
+  "plot": "The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe. As Thanos collects the Infinity Stones, Earth's mightiest heroes must unite for an epic battle that will determine the fate of all existence.",
+  "rating": 8,
+  "runtimeMin": 149
+}
+,
+{
+  "id": "7e9d3c1a-8b4f-4a2e-9f6c-5d8a2e7b3f1c",
+  "entityType": "movie",
+  "movieId": "7e9d3c1a-8b4f-4a2e-9f6c-5d8a2e7b3f1c",
+  "title": "Coco",
+  "releaseYear": "2017",
+  "releaseDate": "2017-11-22T00:00:00Z",
+  "plot": "Aspiring musician Miguel, confronted with his family's ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer. On his journey through the colorful world of the deceased during Día de los Muertos, Miguel discovers the importance of family and the true story behind his family's generations-old ban.",
+  "rating": 8,
+  "runtimeMin": 105
+}
+,
+{
+  "id": "6d3c8e2a-9f4b-4a1e-8b7d-2c5f9a3e6d4b",
+  "entityType": "movie",
+  "movieId": "6d3c8e2a-9f4b-4a1e-8b7d-2c5f9a3e6d4b",
+  "title": "Aliens",
+  "releaseYear": "1986",
+  "releaseDate": "1986-07-18T00:00:00Z",
+  "plot": "Fifty-seven years after surviving an apocalyptic attack aboard her space vessel, Ellen Ripley joins a team of Marines to investigate the disappearance of colonists on the moon LV-426. They discover the colony has been overrun by hostile alien creatures, forcing Ripley to confront her nightmares once again in an intense battle for survival.",
+  "rating": 9,
+  "runtimeMin": 137
+}
+,
+{
+  "id": "3b1f9e7c-8d4a-4e2a-9b6f-5a7c8d2e4f9b",
+  "entityType": "movie",
+  "movieId": "3b1f9e7c-8d4a-4e2a-9b6f-5a7c8d2e4f9b",
+  "title": "American History X",
+  "releaseYear": "1998",
+  "releaseDate": "1998-10-30T00:00:00Z",
+  "plot": "A former neo-Nazi skinhead tries to prevent his younger brother from going down the same wrong path that he did. Derek Vinyard, fresh out of prison, attempts to save his brother Danny from following in his footsteps. Through flashbacks, the film explores Derek's descent into hatred and his eventual redemption.",
+  "rating": 9,
+  "runtimeMin": 119
+}
+,
+{
+  "id": "8f2e9d4a-7c1b-4a5e-9f8c-3d6a2e7b5f4c",
+  "entityType": "movie",
+  "movieId": "8f2e9d4a-7c1b-4a5e-9f8c-3d6a2e7b5f4c",
+  "title": "Toy Story",
+  "releaseYear": "1995",
+  "releaseDate": "1995-11-22T00:00:00Z",
+  "plot": "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room. Woody and Buzz Lightyear must overcome their rivalry and work together when they find themselves separated from their owner Andy. Their adventure teaches them about friendship, loyalty, and what it truly means to be a toy.",
+  "rating": 8,
+  "runtimeMin": 81
+}
+,
+{
+  "id": "1c7e4f9b-8d2a-4e5a-9c6f-3b8d2a7e5f4c",
+  "entityType": "movie",
+  "movieId": "1c7e4f9b-8d2a-4e5a-9c6f-3b8d2a7e5f4c",
+  "title": "Braveheart",
+  "releaseYear": "1995",
+  "releaseDate": "1995-05-24T00:00:00Z",
+  "plot": "Scottish warrior William Wallace leads his countrymen in a rebellion to free his homeland from the tyranny of King Edward I of England. After witnessing the murder of his wife by English soldiers, Wallace rallies the Scottish clans to fight for their freedom, becoming a symbol of Scottish independence and national pride.",
+  "rating": 8,
+  "runtimeMin": 178
+}
+,
+{
+  "id": "5e9d2a7f-8c4b-4f1e-9a6c-3b7d2e8f5a4c",
+  "entityType": "movie",
+  "movieId": "5e9d2a7f-8c4b-4f1e-9a6c-3b7d2e8f5a4c",
+  "title": "Joker",
+  "releaseYear": "2019",
+  "releaseDate": "2019-10-04T00:00:00Z",
+  "plot": "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime, transforming into the iconic villain known as the Joker. This path ultimately brings him face-to-face with his alter-ego and inspires a violent counter-cultural revolution.",
+  "rating": 8,
+  "runtimeMin": 122
+}
+,
+{
+  "id": "ea9521d9-bf3b-43e3-af2f-a92007bb8521",
+  "entityType": "movie",
+  "movieId": "ea9521d9-bf3b-43e3-af2f-a92007bb8521",
+  "title": "Requiem for a Dream",
+  "releaseYear": "2000",
+  "releaseDate": "2000-10-27T00:00:00Z",
+  "plot": "The drug-induced utopias of four Coney Island people are shattered when their addictions run deep. Sara Goldfarb becomes addicted to diet pills in her obsession to appear on a TV show, while her son Harry and his girlfriend Marion descend into heroin addiction. Their friend Tyrone also spirals downward, showcasing the devastating impact of addiction.",
+  "rating": 8,
+  "runtimeMin": 102
+}
+,
+{
+  "id": "9c3a7e1b-6f4d-4a8e-9b2f-5d7c8a3e6b1f",
+  "entityType": "movie",
+  "movieId": "9c3a7e1b-6f4d-4a8e-9b2f-5d7c8a3e6b1f",
+  "title": "Eternal Sunshine of the Spotless Mind",
+  "releaseYear": "2004",
+  "releaseDate": "2004-03-19T00:00:00Z",
+  "plot": "When their relationship turns sour, a couple undergoes a medical procedure to have each other erased from their memories. Joel discovers that Clementine has had him erased from her memory, and decides to undergo the same procedure. During the process, he realizes he still loves her and fights to preserve at least some memory of their relationship.",
+  "rating": 8,
+  "runtimeMin": 108
+}
+,
+{
+  "id": "4d8e2f9a-7c1b-4e5a-8c6f-3b9d2a7e5f4c",
+  "entityType": "movie",
+  "movieId": "4d8e2f9a-7c1b-4e5a-8c6f-3b9d2a7e5f4c",
+  "title": "The Pianist",
+  "releaseYear": "2002",
+  "releaseDate": "2002-09-25T00:00:00Z",
+  "plot": "A Polish Jewish musician struggles to survive the destruction of the Warsaw ghetto during World War II. Władysław Szpilman witnesses the horrors of the Holocaust firsthand as his family is deported and he is forced to hide in the ruins of Warsaw. His incredible story of survival is sustained by his passion for music and the kindness of strangers.",
+  "rating": 9,
+  "runtimeMin": 150
+}
+,
+{
+  "id": "7f9e3c1a-8b4d-4a2e-9f6c-5d8a2e7b3f1c",
+  "entityType": "movie",
+  "movieId": "7f9e3c1a-8b4d-4a2e-9f6c-5d8a2e7b3f1c",
+  "title": "Amélie",
+  "releaseYear": "2001",
+  "releaseDate": "2001-04-25T00:00:00Z",
+  "plot": "Amélie is an innocent and naive girl in Paris with her own sense of justice. She decides to help those around her and, along the way, discovers love herself. Working as a waitress in a small café, she devises elaborate schemes to bring happiness to others while struggling with her own isolation and search for connection.",
+  "rating": 8,
+  "runtimeMin": 122
+}
+,
+{
+  "id": "6e3d8c2a-9f4b-4a1e-8b7d-2c5f9a3e6d4b",
+  "entityType": "movie",
+  "movieId": "6e3d8c2a-9f4b-4a1e-8b7d-2c5f9a3e6d4b",
+  "title": "The Grand Budapest Hotel",
+  "releaseYear": "2014",
+  "releaseDate": "2014-03-07T00:00:00Z",
+  "plot": "A writer encounters the owner of an aging high-class hotel, who tells him of his early years serving as a lobby boy in the hotel's glorious years under an exceptional concierge. The story involves the theft of a priceless painting, a family fortune, and the bonds forged in a rapidly changing Europe between World Wars.",
+  "rating": 8,
+  "runtimeMin": 99
+}
+,
+{
+  "id": "3c1f9e7b-8d4a-4e2a-9b6f-5a7c8d2e4f9b",
+  "entityType": "movie",
+  "movieId": "3c1f9e7b-8d4a-4e2a-9b6f-5a7c8d2e4f9b",
+  "title": "oldboy",
+  "releaseYear": "2003",
+  "releaseDate": "2003-11-21T00:00:00Z",
+  "plot": "After being kidnapped and imprisoned for fifteen years, Oh Dae-Su is released, only to find that he must find his captor in five days. His quest for vengeance becomes increasingly complex as he uncovers dark secrets from his past. The shocking revelation of why he was imprisoned transforms his mission into a devastating journey of truth.",
+  "rating": 8,
+  "runtimeMin": 120
+}
+,
+{
+  "id": "5aef110a-7627-4e14-963a-d1d9c6952c57",
+  "entityType": "movie",
+  "movieId": "5aef110a-7627-4e14-963a-d1d9c6952c57",
+  "title": "Blade Runner 2049",
+  "releaseYear": "2017",
+  "releaseDate": "2017-10-06T00:00:00Z",
+  "plot": "A young blade runner's discovery of a long-buried secret leads him to track down former blade runner Rick Deckard, who's been missing for thirty years. Officer K uncovers a mystery that could plunge society into chaos, embarking on a journey through a dystopian Los Angeles to find answers about identity, humanity, and what it means to be real.",
+  "rating": 8,
+  "runtimeMin": 164
+}
+,
+{
+  "id": "1d7e4f9b-8c2a-4e5a-9c6f-3b8d2a7e5f4c",
+  "entityType": "movie",
+  "movieId": "1d7e4f9b-8c2a-4e5a-9c6f-3b8d2a7e5f4c",
+  "title": "Once Upon a Time in the West",
+  "releaseYear": "1968",
+  "releaseDate": "1968-12-21T00:00:00Z",
+  "plot": "A mysterious stranger with a harmonica joins forces with a notorious desperado to protect a beautiful widow from a ruthless assassin working for the railroad. Set in the dying days of the Old West, this epic tale weaves together revenge, greed, and the clash between individual freedom and industrial progress.",
+  "rating": 9,
+  "runtimeMin": 165
+}
+,
+{
+  "id": "5f9e2a7d-8c4b-4f1e-9a6c-3b7d2e8f5a4c",
+  "entityType": "movie",
+  "movieId": "5f9e2a7d-8c4b-4f1e-9a6c-3b7d2e8f5a4c",
+  "title": "Casablanca",
+  "releaseYear": "1942",
+  "releaseDate": "1942-11-26T00:00:00Z",
+  "plot": "A cynical American expatriate struggles to decide whether or not to help his former lover and her fugitive husband escape French Morocco during World War II. Rick Blaine must choose between his love for Ilsa and helping her and her husband, Resistance leader Victor Laszlo, escape from the Nazis.",
+  "rating": 9,
+  "runtimeMin": 102
+}
+,
+{
+  "id": "9a5ec5d9-231d-4aad-ac5f-a5a72253739b",
+  "entityType": "movie",
+  "movieId": "9a5ec5d9-231d-4aad-ac5f-a5a72253739b",
+  "title": "Psycho",
+  "releaseYear": "1960",
+  "releaseDate": "1960-09-08T00:00:00Z",
+  "plot": "A Phoenix secretary embezzles $40,000 from her employer's client, goes on the run, and checks into a remote motel run by a young man under the domination of his mother. Marion Crane's decision to steal leads her to the Bates Motel, where she encounters Norman Bates in this groundbreaking psychological thriller.",
+  "rating": 9,
+  "runtimeMin": 109
+}
+,
+{
+  "id": "9d3b7e1c-6f4a-4a8e-9b2f-5d7c8a3e6b1f",
+  "entityType": "movie",
+  "movieId": "9d3b7e1c-6f4a-4a8e-9b2f-5d7c8a3e6b1f",
+  "title": "Vertigo",
+  "releaseYear": "1958",
+  "releaseDate": "1958-05-09T00:00:00Z",
+  "plot": "A former police detective juggles wrestling with his personal demons and becoming obsessed with a woman who reminds him of someone who died. After being forced to retire due to acrophobia and vertigo, Scottie Ferguson is hired to follow a friend's wife, but his growing obsession leads to tragic consequences.",
+  "rating": 8,
+  "runtimeMin": 128
+}
+,
+{
+  "id": "4e8d2f9a-7c1b-4e5a-8c6f-3b9d2a7e5f4c",
+  "entityType": "movie",
+  "movieId": "4e8d2f9a-7c1b-4e5a-8c6f-3b9d2a7e5f4c",
+  "title": "Rear Window",
+  "releaseYear": "1954",
+  "releaseDate": "1954-09-01T00:00:00Z",
+  "plot": "A wheelchair-bound photographer spies on his neighbors from his apartment window and becomes convinced one of them has committed murder. L.B. Jefferies, confined to his apartment with a broken leg, passes time watching his neighbors. When he suspects one of them of murder, he enlists his girlfriend and nurse to help investigate.",
+  "rating": 9,
+  "runtimeMin": 112
+}
+,
+{
+  "id": "dfc18dcb-7568-443f-ab44-fd5be995b58a",
+  "entityType": "movie",
+  "movieId": "dfc18dcb-7568-443f-ab44-fd5be995b58a",
+  "title": "Citizen Kane",
+  "releaseYear": "1941",
+  "releaseDate": "1941-09-05T00:00:00Z",
+  "plot": "Following the death of publishing tycoon Charles Foster Kane, reporters scramble to uncover the meaning of his final word: Rosebud. Through a series of flashbacks, the film chronicles Kane's rise from humble beginnings to powerful media mogul, exploring themes of ambition, lost innocence, and the American Dream.",
+  "rating": 9,
+  "runtimeMin": 119
+}
+,
+{
+  "id": "6f3e8c2a-9d4b-4a1e-8b7d-2c5f9a3e6d4b",
+  "entityType": "movie",
+  "movieId": "6f3e8c2a-9d4b-4a1e-8b7d-2c5f9a3e6d4b",
+  "title": "It's a Wonderful Life",
+  "releaseYear": "1946",
+  "releaseDate": "1946-12-20T00:00:00Z",
+  "plot": "An angel is sent from Heaven to help a desperately frustrated businessman by showing him what life would have been like if he had never existed. George Bailey, on the brink of suicide, is given the gift of seeing how his small town of Bedford Falls and the lives of his loved ones would be different without him.",
+  "rating": 9,
+  "runtimeMin": 130
+}
+,
+{
+  "id": "6d83858f-192e-44bd-97b3-e8547c520d1d",
+  "entityType": "movie",
+  "movieId": "6d83858f-192e-44bd-97b3-e8547c520d1d",
+  "title": "12 Angry Men",
+  "releaseYear": "1957",
+  "releaseDate": "1957-04-10T00:00:00Z",
+  "plot": "A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence in a murder case. In a sweltering jury room, one dissenting juror gradually manages to convince the others that the case is not as obviously clear as it seemed, revealing prejudices and personal demons along the way.",
+  "rating": 10,
+  "runtimeMin": 96
+}
+,
+{
+  "id": "962bf2e5-875d-4e27-8096-1f66e88f5c86",
+  "entityType": "movie",
+  "movieId": "962bf2e5-875d-4e27-8096-1f66e88f5c86",
+  "title": "Modern Times",
+  "releaseYear": "1936",
+  "releaseDate": "1936-02-25T00:00:00Z",
+  "plot": "The Tramp struggles to live in modern industrial society with the help of a young homeless woman. Charlie Chaplin's iconic character faces the dehumanizing effects of the machine age, working on assembly lines and getting caught up in political demonstrations, all while maintaining his humanity and finding love.",
+  "rating": 8,
+  "runtimeMin": 87
+}
+,
+{
+  "id": "1e7d4f9b-8c2a-4e5a-9c6f-3b8d2a7e5f4c",
+  "entityType": "movie",
+  "movieId": "1e7d4f9b-8c2a-4e5a-9c6f-3b8d2a7e5f4c",
+  "title": "Apocalypse Now",
+  "releaseYear": "1979",
+  "releaseDate": "1979-08-15T00:00:00Z",
+  "plot": "A U.S. Army officer serving in Vietnam is tasked with assassinating a renegade Special Forces Colonel who sees himself as a god. Captain Willard journeys upriver into the heart of darkness, encountering the horrors of war and questioning his own sanity and morality as he gets closer to his target, Colonel Kurtz.",
+  "rating": 9,
+  "runtimeMin": 147
+}
+,
+{
+  "id": "39ecd359-8876-4fc2-8732-b99d251ee147",
+  "entityType": "movie",
+  "movieId": "39ecd359-8876-4fc2-8732-b99d251ee147",
+  "title": "The Great Dictator",
+  "releaseYear": "1940",
+  "releaseDate": "1940-10-15T00:00:00Z",
+  "plot": "Dictator Adenoid Hynkel tries to expand his empire while a poor Jewish barber tries to avoid persecution from Hynkel's regime. In a case of mistaken identity, the barber is eventually mistaken for Hynkel, setting the stage for Charlie Chaplin's powerful satire of fascism and his famous speech pleading for humanity.",
+  "rating": 8,
+  "runtimeMin": 125
+}
+,
+{
+  "id": "5042c84b-13e8-4ad6-bf2e-0ed456d6ef14",
+  "entityType": "movie",
+  "movieId": "5042c84b-13e8-4ad6-bf2e-0ed456d6ef14",
+  "title": "Sunset Boulevard",
+  "releaseYear": "1950",
+  "releaseDate": "1950-08-10T00:00:00Z",
+  "plot": "A screenwriter develops a dangerous relationship with a faded film star determined to make a triumphant return to the screen. Joe Gillis, down on his luck, becomes entangled with forgotten silent film star Norma Desmond, who lives in delusion about her comeback. The relationship spirals into obsession and tragedy.",
+  "rating": 9,
+  "runtimeMin": 110
+}
+,
+{
+  "id": "9e3c7b1a-6f4a-4a8e-9b2f-5d7c8a3e6b1f",
+  "entityType": "movie",
+  "movieId": "9e3c7b1a-6f4a-4a8e-9b2f-5d7c8a3e6b1f",
+  "title": "Dr. Strangelove",
+  "releaseYear": "1964",
+  "releaseDate": "1964-01-29T00:00:00Z",
+  "plot": "An insane general triggers a path to nuclear holocaust that a War Room full of politicians and generals frantically tries to stop. This dark comedy satirizes the Cold War paranoia as various military and political figures attempt to prevent a nuclear catastrophe triggered by a rogue Air Force general's orders.",
+  "rating": 9,
+  "runtimeMin": 95
+}
+,
+{
+  "id": "4f8e2d9a-7c1b-4e5a-8c6f-3b9d2a7e5f4c",
+  "entityType": "movie",
+  "movieId": "4f8e2d9a-7c1b-4e5a-8c6f-3b9d2a7e5f4c",
+  "title": "Paths of Glory",
+  "releaseYear": "1957",
+  "releaseDate": "1957-12-25T00:00:00Z",
+  "plot": "After refusing to attack an enemy position, a general accuses the soldiers of cowardice and their commanding officer must defend them. Set during World War I, Colonel Dax tries to defend three soldiers randomly selected to be tried for cowardice after a failed mission, exposing the corruption and class divide in the French military.",
+  "rating": 9,
+  "runtimeMin": 88
+}
+,
+{
+  "id": "4e6bb367-4616-4b08-a72f-631106f514a3",
+  "entityType": "movie",
+  "movieId": "4e6bb367-4616-4b08-a72f-631106f514a3",
+  "title": "The Shining",
+  "releaseYear": "1980",
+  "releaseDate": "1980-05-23T00:00:00Z",
+  "plot": "A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence, while his psychic son sees horrific forebodings from both past and future. Jack Torrance descends into madness as the Overlook Hotel's dark history and supernatural forces consume him, endangering his wife and son.",
+  "rating": 8,
+  "runtimeMin": 146
+}
+,
+{
+  "id": "cb0e8362-5639-4cbf-ba2f-10d1d08eadde",
+  "entityType": "movie",
+  "movieId": "cb0e8362-5639-4cbf-ba2f-10d1d08eadde",
+  "title": "The Thing",
+  "releaseYear": "1982",
+  "releaseDate": "1982-06-25T00:00:00Z",
+  "plot": "A research team in Antarctica is hunted by a shape-shifting alien that assumes the appearance of its victims. Paranoia and suspicion mount as the team members realize the creature could be any one of them. MacReady and the others must find a way to identify and destroy the alien before it can assimilate everyone.",
+  "rating": 8,
+  "runtimeMin": 109
+}
+,
+{
+  "id": "f095131c-2c63-4d11-af82-a58ca03ac7d8",
+  "entityType": "movie",
+  "movieId": "f095131c-2c63-4d11-af82-a58ca03ac7d8",
+  "title": "Alien",
+  "releaseYear": "1979",
+  "releaseDate": "1979-05-25T00:00:00Z",
+  "plot": "After a space merchant vessel receives an unknown transmission as a distress call, one of the crew is attacked by a mysterious life form and they soon realize that its life cycle has merely begun. The crew of the Nostromo must survive as a deadly xenomorph hunts them through their ship, with warrant officer Ellen Ripley fighting to stay alive.",
+  "rating": 9,
+  "runtimeMin": 117
+}
+,
+{
+  "id": "f2fcd0cd-6e75-44c2-9379-d05d7f0ddb73",
+  "entityType": "movie",
+  "movieId": "f2fcd0cd-6e75-44c2-9379-d05d7f0ddb73",
+  "title": "2001: A Space Odyssey",
+  "releaseYear": "1968",
+  "releaseDate": "1968-04-02T00:00:00Z",
+  "plot": "After discovering a mysterious artifact buried beneath the Lunar surface, mankind sets off on a quest to find its origins with help from intelligent supercomputer HAL 9000. The journey takes astronauts on a voyage to Jupiter, exploring evolution, technology, and humanity's place in the universe in this groundbreaking science fiction epic.",
+  "rating": 9,
+  "runtimeMin": 149
+}
+,
+{
+  "id": "1f7e4d9b-8c2a-4e5a-9c6f-3b8d2a7e5f4c",
+  "entityType": "movie",
+  "movieId": "1f7e4d9b-8c2a-4e5a-9c6f-3b8d2a7e5f4c",
+  "title": "A Clockwork Orange",
+  "releaseYear": "1971",
+  "releaseDate": "1971-12-19T00:00:00Z",
+  "plot": "In the future, a sadistic gang leader is imprisoned and volunteers for a conduct-aversion experiment, but it doesn't go as planned. Alex DeLarge undergoes the Ludovico Technique to cure him of his violent tendencies, raising questions about free will, morality, and the nature of evil in this controversial dystopian film.",
+  "rating": 8,
+  "runtimeMin": 136
+}
+,
+{
+  "id": "cfa57c60-2c35-4947-8275-e778f11c2b69",
+  "entityType": "movie",
+  "movieId": "cfa57c60-2c35-4947-8275-e778f11c2b69",
+  "title": "Full Metal Jacket",
+  "releaseYear": "1987",
+  "releaseDate": "1987-06-26T00:00:00Z",
+  "plot": "A pragmatic U.S. Marine observes the dehumanizing effects of the Vietnam War training and combat on his fellow recruits. The film is divided into two parts: the brutal boot camp training under Gunnery Sergeant Hartman, and the Marines' experiences during the Tet Offensive, showcasing war's psychological toll.",
+  "rating": 8,
+  "runtimeMin": 116
+}
+,
+{
+  "id": "5a9892c1-8c29-4261-a506-8a68377d83e4",
+  "entityType": "movie",
+  "movieId": "5a9892c1-8c29-4261-a506-8a68377d83e4",
+  "title": "Lawrence of Arabia",
+  "releaseYear": "1962",
+  "releaseDate": "1962-12-10T00:00:00Z",
+  "plot": "The story of T.E. Lawrence, the English officer who successfully united and led the diverse, often warring, Arab tribes during World War I in order to fight the Turks. This epic biographical drama follows Lawrence's complex journey through the Arabian desert, his internal struggles, and his transformation from a British officer to an Arab leader.",
+  "rating": 9,
+  "runtimeMin": 216
+}
+,
+{
+  "id": "9f3d7c1a-6e4a-4a8e-9b2f-5d7c8a3e6b1f",
+  "entityType": "movie",
+  "movieId": "9f3d7c1a-6e4a-4a8e-9b2f-5d7c8a3e6b1f",
+  "title": "To Kill a Mockingbird",
+  "releaseYear": "1962",
+  "releaseDate": "1962-12-25T00:00:00Z",
+  "plot": "Atticus Finch, a lawyer in the Depression-era South, defends a black man against an undeserved rape charge, and his children against prejudice. Through the eyes of his young daughter Scout, the film explores racial injustice, moral courage, and the loss of innocence in a small Alabama town.",
+  "rating": 9,
+  "runtimeMin": 129
+}
+,
+{
+  "id": "20969160-2ace-4bc5-aaee-9d1cd9763b00",
+  "entityType": "movie",
+  "movieId": "20969160-2ace-4bc5-aaee-9d1cd9763b00",
+  "title": "The Wizard of Oz",
+  "releaseYear": "1939",
+  "releaseDate": "1939-08-25T00:00:00Z",
+  "plot": "Dorothy Gale is swept away from a farm in Kansas to a magical land of Oz in a tornado and embarks on a quest with her new friends to see the Wizard who can help her return home in Kansas and help her friends as well. Along the yellow brick road, she learns valuable lessons about courage, compassion, and the meaning of home.",
+  "rating": 8,
+  "runtimeMin": 102
+}
+,
+{
+  "id": "69075473-8dcd-4f37-b137-85d7034ad49f",
+  "entityType": "movie",
+  "movieId": "69075473-8dcd-4f37-b137-85d7034ad49f",
+  "title": "Singin' in the Rain",
+  "releaseYear": "1952",
+  "releaseDate": "1952-04-11T00:00:00Z",
+  "plot": "A silent film production company and cast make a difficult transition to sound in the late 1920s. Gene Kelly stars as Don Lockwood, a popular silent film star who falls for aspiring actress Kathy Selden while helping his studio adapt to the talking picture revolution, all told through spectacular musical numbers.",
+  "rating": 8,
+  "runtimeMin": 103
+}
+,
+{
+  "id": "6ed231bf-c3c2-4f21-90af-668c83224cc7",
+  "entityType": "movie",
+  "movieId": "6ed231bf-c3c2-4f21-90af-668c83224cc7",
+  "title": "Some Like It Hot",
+  "releaseYear": "1959",
+  "releaseDate": "1959-03-29T00:00:00Z",
+  "plot": "After two male musicians witness a mob hit, they flee the state in an all-female band disguised as women, but further complications set in. Joe and Jerry join Sweet Sue's band while hiding from gangsters, with Joe falling for singer Sugar Kane. This classic comedy explores identity, romance, and the madcap consequences of their disguise.",
+  "rating": 8,
+  "runtimeMin": 121
+}
+,
+{
+  "id": "0f50ad6f-e510-4318-afa6-4f51bfbe38a2",
+  "entityType": "movie",
+  "movieId": "0f50ad6f-e510-4318-afa6-4f51bfbe38a2",
+  "title": "The Apartment",
+  "releaseYear": "1960",
+  "releaseDate": "1960-06-15T00:00:00Z",
+  "plot": "A Manhattan insurance clerk tries to rise in his company by letting its executives use his apartment for trysts, but complications arise when he falls for one of the executive's mistresses. C.C. Baxter's scheme backfires when he discovers the woman he loves is involved with his boss, forcing him to choose between career advancement and integrity.",
+  "rating": 8,
+  "runtimeMin": 125
+}
+,
+{
+  "id": "dab92051-99ee-4394-854d-f380ce6264ba",
+  "entityType": "movie",
+  "movieId": "dab92051-99ee-4394-854d-f380ce6264ba",
+  "title": "North by Northwest",
+  "releaseYear": "1959",
+  "releaseDate": "1959-07-01T00:00:00Z",
+  "plot": "A New York City advertising executive goes on the run after being mistaken for a government agent by a group of foreign spies and falls for a woman whose loyalties he begins to doubt. Roger Thornhill is thrust into a web of espionage and intrigue, leading to iconic scenes atop Mount Rushmore in this Hitchcock thriller.",
+  "rating": 8,
+  "runtimeMin": 136
+}
+,
+{
+  "id": "89fb675e-0c8a-488b-ac81-1c438d81d2a6",
+  "entityType": "movie",
+  "movieId": "89fb675e-0c8a-488b-ac81-1c438d81d2a6",
+  "title": "The Third Man",
+  "releaseYear": "1949",
+  "releaseDate": "1949-08-31T00:00:00Z",
+  "plot": "Pulp novelist Holly Martins travels to shadowy, postwar Vienna, only to find himself investigating the mysterious death of an old friend, black-market opportunist Harry Lime. Set against the backdrop of divided Vienna, this noir classic features iconic cinematography and one of cinema's most memorable chase scenes through the sewers.",
+  "rating": 9,
+  "runtimeMin": 104
+}
+,
+{
+  "id": "474e5756-ac96-4eca-9e58-b73d8f039e48",
+  "entityType": "movie",
+  "movieId": "474e5756-ac96-4eca-9e58-b73d8f039e48",
+  "title": "The Treasure of the Sierra Madre",
+  "releaseYear": "1948",
+  "releaseDate": "1948-01-24T00:00:00Z",
+  "plot": "Two American down-and-outers in 1920s Mexico hook up with an old-timer to prospect for gold. Their discovery tests their friendship and sanity as greed, paranoia, and desperation take hold. The film explores the corrupting influence of wealth and the darkness that can emerge from the human soul when tested by fortune.",
+  "rating": 8,
+  "runtimeMin": 126
+}
+,
+{
+  "id": "b2da3941-6cd8-4ed2-b257-8c9a8d466a39",
+  "entityType": "movie",
+  "movieId": "b2da3941-6cd8-4ed2-b257-8c9a8d466a39",
+  "title": "Double Indemnity",
+  "releaseYear": "1944",
+  "releaseDate": "1944-07-03T00:00:00Z",
+  "plot": "An insurance representative lets himself be talked by a seductive housewife into a murder-insurance fraud scheme that arouses the suspicion of his colleague, an insurance investigator. Walter Neff falls into a web of deception and murder orchestrated by femme fatale Phyllis Dietrichson in this quintessential film noir.",
+  "rating": 9,
+  "runtimeMin": 107
+}
+,
+{
+  "id": "9726e04a-a256-4642-9e7d-5e9f3d03364f",
+  "entityType": "movie",
+  "movieId": "9726e04a-a256-4642-9e7d-5e9f3d03364f",
+  "title": "The Maltese Falcon",
+  "releaseYear": "1941",
+  "releaseDate": "1941-10-03T00:00:00Z",
+  "plot": "A private detective takes on a case that involves him with three eccentric criminals, a gorgeous liar, and their quest for a priceless statuette. Sam Spade navigates a web of deceit and murder as various parties seek the legendary black bird, making this one of the defining films of the noir genre.",
+  "rating": 8,
+  "runtimeMin": 100
+}
+,
+{
+  "id": "90f8af98-941a-42e5-b2e3-5a588052573a",
+  "entityType": "movie",
+  "movieId": "90f8af98-941a-42e5-b2e3-5a588052573a",
+  "title": "Bicycle Thieves",
+  "releaseYear": "1948",
+  "releaseDate": "1948-11-24T00:00:00Z",
+  "plot": "In post-war Italy, a working-class man's bicycle is stolen, endangering his efforts to find work. He and his son set out to find it. This neorealist masterpiece follows Antonio Ricci's desperate search through Rome, highlighting poverty, desperation, and the bond between father and son in a society struggling to rebuild.",
+  "rating": 9,
+  "runtimeMin": 89
+}
+,
+{
+  "id": "3ea17af7-06c6-4563-9ac3-c9f9f8bacf37",
+  "entityType": "movie",
+  "movieId": "3ea17af7-06c6-4563-9ac3-c9f9f8bacf37",
+  "title": "M",
+  "releaseYear": "1931",
+  "releaseDate": "1931-05-11T00:00:00Z",
+  "plot": "When the police in a German city are unable to catch a child-murderer, other criminals join in the manhunt. Peter Lorre gives a haunting performance as the compulsive killer Hans Beckert in this groundbreaking thriller that explores psychology, justice, and society's response to evil. Fritz Lang's masterpiece remains influential to this day.",
+  "rating": 9,
+  "runtimeMin": 117
+}
+,
+{
+  "id": "0fe7896b-4d79-409b-9410-94ff84541956",
+  "entityType": "movie",
+  "movieId": "0fe7896b-4d79-409b-9410-94ff84541956",
+  "title": "Metropolis",
+  "releaseYear": "1927",
+  "releaseDate": "1927-03-13T00:00:00Z",
+  "plot": "In a futuristic city sharply divided between the working class and the city planners, the son of the city's mastermind falls in love with a working-class prophet who predicts the coming of a savior to mediate their differences. This silent film science fiction epic remains visually stunning and thematically relevant nearly a century later.",
+  "rating": 8,
+  "runtimeMin": 153
+}
+,
+{
+  "id": "1d4e5872-aada-4152-8440-505dba9ee8b5",
+  "entityType": "movie",
+  "movieId": "1d4e5872-aada-4152-8440-505dba9ee8b5",
+  "title": "The General",
+  "releaseYear": "1926",
+  "releaseDate": "1926-12-31T00:00:00Z",
+  "plot": "When Union spies steal an engineer's beloved locomotive, he pursues it single-handedly and straight through enemy lines. Buster Keaton stars in this silent comedy-adventure set during the American Civil War, featuring spectacular stunts and one of cinema's most famous train chases, all performed with Keaton's characteristic deadpan style.",
+  "rating": 8,
+  "runtimeMin": 78
+}
+,
+{
+  "id": "a4bbc364-c31d-450f-998a-ba8b4dd03f9e",
+  "entityType": "movie",
+  "movieId": "a4bbc364-c31d-450f-998a-ba8b4dd03f9e",
+  "title": "City Lights",
+  "releaseYear": "1931",
+  "releaseDate": "1931-03-07T00:00:00Z",
+  "plot": "With the aid of a wealthy erratic tippler, a dewy-eyed tramp who has fallen in love with a sightless flower girl accumulates money to be able to help her medically. Charlie Chaplin's Little Tramp character shines in this silent romantic comedy-drama that showcases Chaplin's genius for blending humor with heartfelt emotion.",
+  "rating": 9,
+  "runtimeMin": 87
+}
+,
+{
+  "id": "5521f825-a4d3-47d3-9e32-64e9a9543720",
+  "entityType": "movie",
+  "movieId": "5521f825-a4d3-47d3-9e32-64e9a9543720",
+  "title": "The Kid",
+  "releaseYear": "1921",
+  "releaseDate": "1921-02-06T00:00:00Z",
+  "plot": "The Tramp cares for an abandoned child, but events put that relationship in jeopardy. Charlie Chaplin's first full-length feature combines comedy and pathos as the Little Tramp raises a foundling boy as his own son. Their bond is tested when the child's mother searches for him years later.",
+  "rating": 8,
+  "runtimeMin": 68
+}
+,
+{
+  "id": "da6e3fa7-540a-4a62-896a-9d40643572f9",
+  "entityType": "movie",
+  "movieId": "da6e3fa7-540a-4a62-896a-9d40643572f9",
+  "title": "The Gold Rush",
+  "releaseYear": "1925",
+  "releaseDate": "1925-06-26T00:00:00Z",
+  "plot": "A prospector goes to the Klondike in search of gold and finds it and more. Charlie Chaplin's Little Tramp faces the harsh conditions of the Yukon Gold Rush, creating some of cinema's most iconic moments including the dance of the rolls and eating a boiled shoe, all while pursuing both fortune and romance.",
+  "rating": 8,
+  "runtimeMin": 95
+}
+,
+{
+  "id": "b5ce66fc-8286-4519-8355-cf1075760815",
+  "entityType": "movie",
+  "movieId": "b5ce66fc-8286-4519-8355-cf1075760815",
+  "title": "Rashomon",
+  "releaseYear": "1950",
+  "releaseDate": "1950-08-25T00:00:00Z",
+  "plot": "The rape of a bride and the murder of her samurai husband are recalled from the perspectives of four witnesses, including the ghost of the murdered man. Akira Kurosawa's groundbreaking film explores the subjectivity of truth and memory, with each account contradicting the others, leaving the actual events forever ambiguous.",
+  "rating": 9,
+  "runtimeMin": 88
+}
+,
+{
+  "id": "b6cbf8a1-1898-455d-aab2-688e27da50ba",
+  "entityType": "movie",
+  "movieId": "b6cbf8a1-1898-455d-aab2-688e27da50ba",
+  "title": "Ikiru",
+  "releaseYear": "1952",
+  "releaseDate": "1952-10-09T00:00:00Z",
+  "plot": "A bureaucrat tries to find meaning in his life after discovering he has terminal cancer. Kanji Watanabe, a Tokyo civil servant, has wasted his life on meaningless paperwork. Faced with his mortality, he searches for purpose and decides to dedicate his remaining time to creating a children's park, finding redemption through action.",
+  "rating": 9,
+  "runtimeMin": 143
+}
+,
+{
+  "id": "213e899d-69ba-4103-b97a-3a4ea31ddc46",
+  "entityType": "movie",
+  "movieId": "213e899d-69ba-4103-b97a-3a4ea31ddc46",
+  "title": "Ran",
+  "releaseYear": "1985",
+  "releaseDate": "1985-06-01T00:00:00Z",
+  "plot": "In medieval Japan, an elderly warlord retires, handing over his empire to his three sons. However, he vastly underestimates how the new-found power will corrupt them and cause them to turn on each other...and him. Akira Kurosawa's epic adaptation of King Lear features stunning cinematography and explores themes of power, betrayal, and chaos.",
+  "rating": 9,
+  "runtimeMin": 162
+}
+,
+{
+  "id": "f75d42d8-f28a-4b44-be27-ea9cf47a5ad9",
+  "entityType": "movie",
+  "movieId": "f75d42d8-f28a-4b44-be27-ea9cf47a5ad9",
+  "title": "Yojimbo",
+  "releaseYear": "1961",
+  "releaseDate": "1961-04-25T00:00:00Z",
+  "plot": "A crafty ronin comes to a town divided by two criminal gangs and decides to play them against each other to free the town. Toshiro Mifune stars as the nameless wandering samurai who manipulates both sides for his own amusement and profit, creating the template for countless westerns and action films that followed.",
+  "rating": 8,
+  "runtimeMin": 110
+}
+,
+{
+  "id": "d0231f2b-e6e8-4587-a8ec-32e269c6801b",
+  "entityType": "movie",
+  "movieId": "d0231f2b-e6e8-4587-a8ec-32e269c6801b",
+  "title": "High and Low",
+  "releaseYear": "1963",
+  "releaseDate": "1963-03-01T00:00:00Z",
+  "plot": "An executive of a shoe company becomes a victim of extortion when his chauffeur's son is kidnapped and held for ransom. Kingo Gondo must decide whether to pay to save a boy who isn't even his own son, risking his career and fortune. Akira Kurosawa crafts a tense crime thriller that explores class, morality, and sacrifice.",
+  "rating": 9,
+  "runtimeMin": 143
+}]

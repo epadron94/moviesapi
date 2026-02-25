@@ -38,19 +38,30 @@ public class ReviewProcess : IReviewProcess
         //throw new _cosmos.CosmosException("test- Request was throttled", HttpStatusCode.TooManyRequests,0,string.Empty, 0);
         
     }
-    public async Task<_cosmos.ItemResponse<ReviewDto>> PatchReviewAsync(ReviewDto review)
+    public async Task<ReviewResponse> PatchReviewAsync(ReviewDto review)
     {
-        //var response = await container.ReplaceItemAsync(review,Convert.ToString(review.ReviewId), new _cosmos.PartitionKey(Convert.ToString(review.ReviewId)));
-        var patchOp = new List<_cosmos.PatchOperation>
+        try
         {
-            _cosmos.PatchOperation.Replace("/rating", review.Rating),
-            _cosmos.PatchOperation.Replace("/review",review.Review),
-            _cosmos.PatchOperation.Replace("/reviewDate", DateTime.UtcNow)
-        };
-        var response = await container.PatchItemAsync<ReviewDto>(review.ReviewId.ToString(),
-                                                                new _cosmos.PartitionKey(review.MovieId.ToString()),
-                                                                patchOp);
-        return response;
+            var patchOp = new List<_cosmos.PatchOperation>
+            {
+                _cosmos.PatchOperation.Replace("/rating", review.Rating),
+                _cosmos.PatchOperation.Replace("/review",review.Review),
+                _cosmos.PatchOperation.Replace("/reviewDate", DateTime.UtcNow)
+            };
+            _cosmos.PatchItemRequestOptions opts = new _cosmos.PatchItemRequestOptions
+            {
+                EnableContentResponseOnWrite = false
+            };
+            var response = await container.PatchItemAsync<ReviewDto>(review.ReviewId.ToString(),
+                                                                    new _cosmos.PartitionKey(review.MovieId.ToString()),
+                                                                    patchOp,
+                                                                    opts);
+            return new ReviewResponse(response);    
+        }
+        catch(_cosmos.CosmosException ex)
+        {
+            return new ReviewResponse(ex);
+        }
     }
     public async Task<bool> DeleteReviewAsync(Guid reviewId, Guid movieId)
     {
@@ -61,8 +72,7 @@ public class ReviewProcess : IReviewProcess
     {
         var result = new List<ReviewDto>();
         var token = utilities.Decode(continuationToken);
-        var query = new _cosmos.QueryDefinition("SELECT c.id, c.userId, c.reviewId, c.rating, c.review, c.reviewDate, c.movieId from c WHERE c.entityType=@entityType AND c.movieId=@movieId")
-                    .WithParameter("@entityType","review")
+        var query = new _cosmos.QueryDefinition("SELECT c.id, c.userId, c.reviewId, c.rating, c.review, c.reviewDate, c.movieId from c WHERE c.movieId=@movieId")
                     .WithParameter("@movieId", Convert.ToString(movieId));
 
         var opts = new _cosmos.QueryRequestOptions
@@ -79,4 +89,16 @@ public class ReviewProcess : IReviewProcess
 
     }
 
+    public async Task<bool> ReviewExists(Guid reviewId,Guid movieId)
+    {
+        try
+        {
+            var response = await container.ReadItemStreamAsync(reviewId.ToString(), new _cosmos.PartitionKey(movieId.ToString()));
+            return response.IsSuccessStatusCode;
+        }
+        catch(_cosmos.CosmosException ex)
+        {
+            return false;
+        }
+    }
 }

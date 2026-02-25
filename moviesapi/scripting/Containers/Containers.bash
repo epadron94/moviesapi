@@ -14,7 +14,8 @@ az cosmosdb sql container create \
     --database-name $databaseName \
     --resource-group $resourceGroup \
     --name User \
-    --partition-key-path "/userId" 
+    --partition-key-path "/userId" \
+    --idx @moviesapi/scripting/Containers/UserCompositeIndex.json
 
 #######################MOVIES##########################
 

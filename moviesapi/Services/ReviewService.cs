@@ -44,43 +44,52 @@ public class ReviewService
             {
                 //ROLLBACK TRANSACTION
                 // at this point, as post in User container failed and the update was not made, rollback in review container
-                await deleteReview(review.ReviewId, review.MovieId);
+                await DeleteReview(review.ReviewId, review.MovieId);
                 throw postUserReviewTsk.GetException;
-            }
-                
-            
+            }            
             totalRequestCharge += postUserReviewTsk.GetReview.RequestCharge;    
         }
         catch(Exception ex ) 
         {
             throw ex;
         }
-        
-        //4. Post Movie review(movie container)
-        //var movieResponse = await unitOfWork.MovieProcess.PostMovieReview(review);
-        //totalRequestCharge +=movieResponse.RequestCharge;
         return (HttpStatusCode.OK, totalRequestCharge);        
     }
 
     public async Task<(HttpStatusCode code , double requestCharge)> PatchReview(ReviewDto review)
     {
-        //1.validate movieIdExists
-        bool movieExists = await unitOfWork.MovieProcess.ItemExistsAsync(review.MovieId);
-        if(!movieExists) throw new ArgumentException("MovieId not found");
         double totalRequestCharge = 0;
-        //2.PAtch Review Container
-        var reviewResponse = await unitOfWork.ReviewProcess.PatchReviewAsync(review);
-        totalRequestCharge +=reviewResponse.RequestCharge;
-        //3.Patch Movie Container
-        var movieResponse = await unitOfWork.MovieProcess.PatchMovieReviewAsync(review);
-        totalRequestCharge +=movieResponse.RequestCharge;
-        //4.Patch User Container
-        //var userResponse = await unitOfWork.UserProcess.PatchUserReviewAsync(review);
-        //totalRequestCharge += userResponse.RequestCharge;
-        return  (reviewResponse.StatusCode, totalRequestCharge);
+        try
+        {
+            //1.validate movieIdExists
+            bool movieExists = await unitOfWork.MovieProcess.ItemExistsAsync(review.MovieId);
+            if(!movieExists) throw new ArgumentException("MovieId not found");
+            //2.Patch Review Container
+            var reviewResponse = await unitOfWork.ReviewProcess.PatchReviewAsync(review);
+            if(reviewResponse.GetException is not null)
+                throw reviewResponse.GetException;
+            totalRequestCharge +=reviewResponse.GetReview.RequestCharge;
+            //3.Patch User Container
+            var userResponse = await unitOfWork.UserProcess.PatchUserReviewAsync(review);
+            if(userResponse.GetException is not null)
+            {
+                //ROLLBACK TRANSACTION
+                //at this point the patch operation was nos succesfull in User container, take the document in this container and patch in Review container
+                await RollbackReview(review.ReviewId, review.MovieId);
+                throw userResponse.GetException;
+            }
+                
+            totalRequestCharge += userResponse.GetReview.RequestCharge;
+        }
+        catch(Exception ex)
+        {
+           throw ex; 
+        }
+        
+        return  (HttpStatusCode.OK, totalRequestCharge);
     }
 
-    private async Task deleteReview(Guid reviewId, Guid movieId)
+    private async Task DeleteReview(Guid reviewId, Guid movieId)
     {
         try
         {
@@ -91,4 +100,30 @@ public class ReviewService
             throw ex;
         }
     }
+
+    private async Task RollbackReview(Guid reviewId, Guid userId)
+    {
+        var review = await unitOfWork.UserProcess.GetReview(reviewId, userId);
+        _ = await unitOfWork.ReviewProcess.PatchReviewAsync(review.Resource);
+    }
+    public async Task<HttpStatusCode> DeleteReview(Guid reviewId, Guid movieId, Guid userId)
+    {
+        try
+        {
+            var reviewExists = await unitOfWork.ReviewProcess.ReviewExists(reviewId, movieId);
+            if(!reviewExists)
+                throw new ArgumentException("Review not found");
+
+            var deleteMovieReview = await unitOfWork.ReviewProcess.DeleteReviewAsync(reviewId,movieId);
+            var deleteUserReview = await unitOfWork.UserProcess.DeleteUserReview(reviewId, userId);
+            return HttpStatusCode.OK;
+        }
+        catch(Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+
+
 }
