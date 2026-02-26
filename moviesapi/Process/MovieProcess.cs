@@ -69,17 +69,16 @@ public class MovieProcess : IMovieProcess//BaseProcess<Movie>
 
         return (result, response.RequestCharge);
     }
-    public async Task<bool> ItemExistsAsync(Guid Id)
+    public async Task<(bool, double)> MovieExistsAsync(Guid movieId)
     {
-        string strId = Convert.ToString(Id);
         try
         {
-            var response = await container.ReadItemStreamAsync(strId, new _cosmos.PartitionKey(strId));
-            return response.IsSuccessStatusCode;
+            var response = await container.ReadItemStreamAsync(movieId.ToString(), new _cosmos.PartitionKey(movieId.ToString()));
+            return (response.IsSuccessStatusCode,response.Headers.RequestCharge);
         }
         catch(_cosmos.CosmosException ex) when(ex.StatusCode == HttpStatusCode.NotFound)
         {
-            return false;
+            return (false,0);
         }
     }
 

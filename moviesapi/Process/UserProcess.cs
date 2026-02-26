@@ -79,15 +79,29 @@ public class UserProcess : IUserProcess
         }
     }
 
-    public async Task<bool> DeleteUserReview(Guid reviewId, Guid userId)
+    public async Task<ReviewResponse> DeleteUserReview(Guid reviewId, Guid userId)
     {
-        var response = await container.DeleteItemAsync<ReviewDto>(reviewId.ToString(), new PartitionKey(userId.ToString()));
-        return true;
+        try
+        {
+            var response = await container.DeleteItemAsync<ReviewDto>(reviewId.ToString(), new PartitionKey(userId.ToString()));
+            return new ReviewResponse(response);
+        }
+        catch(CosmosException ex)
+        {
+            return new ReviewResponse(ex);
+        }
     }
 
-    public async Task<ItemResponse<ReviewDto>> GetReview(Guid reviewId, Guid userId)
+    public async Task<ReviewResponse> GetReviewAsync(Guid reviewId, Guid userId)
     {
-        var response = await container.ReadItemAsync<ReviewDto>(reviewId.ToString(), new PartitionKey(userId.ToString()));
-        return response;
+        try
+        {
+            var response = await container.ReadItemAsync<ReviewDto>(reviewId.ToString(), new PartitionKey(userId.ToString()));
+            return new ReviewResponse(response);
+        }
+        catch(CosmosException ex)
+        {
+            return new ReviewResponse(ex);
+        }
     }
 }

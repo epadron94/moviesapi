@@ -52,7 +52,7 @@ public class ReviewController : ControllerBase
         string userObjectId = User.FindFirstValue("http://schemas.microsoft.com/identity/claims/objectidentifier");
         Guid userId = new Guid(userObjectId);
         var response = await service.DeleteReview(reviewId, movieId, userId);
-        return Ok(response);
+        return NoContent();
     }
 
 

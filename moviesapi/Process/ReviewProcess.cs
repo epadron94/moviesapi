@@ -20,9 +20,19 @@ public class ReviewProcess : IReviewProcess
         utilities =_utilities;
 
     }
-    public Task<ReviewDto> GetReviewAsync(string id)
+    [Obsolete]
+    public async Task<ReviewResponse> GetReviewAsync(Guid reviewId,Guid movieId)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var response = await container.ReadItemAsync<ReviewDto>(reviewId.ToString(),new _cosmos.PartitionKey(movieId.ToString()));
+            return new ReviewResponse(response);
+        }
+        catch(_cosmos.CosmosException ex)
+        {
+            return new ReviewResponse(ex);
+        }
+
     }
     public async Task<ReviewResponse> PostReviewAsync(ReviewDto review)
     {
@@ -63,10 +73,18 @@ public class ReviewProcess : IReviewProcess
             return new ReviewResponse(ex);
         }
     }
-    public async Task<bool> DeleteReviewAsync(Guid reviewId, Guid movieId)
+    public async Task<ReviewResponse> DeleteReviewAsync(Guid reviewId, Guid movieId)
     {
-        var response = await container.DeleteItemAsync<ReviewDto>(reviewId.ToString(),new _cosmos.PartitionKey(movieId.ToString()));
-        return true;
+        try
+        {
+            var response = await container.DeleteItemAsync<ReviewDto>(reviewId.ToString(),new _cosmos.PartitionKey(movieId.ToString()));
+            return new ReviewResponse(response);   
+        }
+        catch(_cosmos.CosmosException ex)
+        {
+            return new ReviewResponse(ex);
+        }
+
     }
     public async Task<(List<ReviewDto>, string ContinuationToken, double requestCharge)> GetMovieReviewsAsync(int pageSize, string continuationToken, Guid movieId)
     {
